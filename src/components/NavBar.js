@@ -14,23 +14,35 @@ const NavUL = styled.ul`
     justify-content: center;
     list-style-type: none;
     margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 `
 
 const NavItem = styled.li`
     display: inline;
-    padding: 10px;
+    padding: 10px 50px 10px 50px;
+`
 
+const NavLink = styled.a`
+    font-size: 50px;
+    font-family:Impact;
+    text-decoration:none;
+    color:gray;
+    
+    &:hover {
+        color: red;
+    
+    }
 `
 function NavBar() {
   return (
    <NavDiv>
       <NavUL>
-        <NavItem>Home</NavItem>
-        <NavItem>About</NavItem>
-        <NavItem>Contact</NavItem>
-        <NavItem>Buy</NavItem>
-        <NavItem>Sell</NavItem>
-        <NavItem>Trade</NavItem>
+        <NavItem><NavLink href='/buy'>Buy</NavLink></NavItem>
+        <NavItem><NavLink href='/sell'>Sell</NavLink></NavItem>
+        <NavItem><NavLink href='/trade'>Trade</NavLink></NavItem>
       </NavUL>
    </NavDiv>
   );
