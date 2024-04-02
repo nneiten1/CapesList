@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const NavDiv = styled.div`
     width:100%;
     height:100px;
-    background-color: cornflowerblue;
+    background-image: linear-gradient(to right,#282828, #525252);
     justify-content: center;
 `
 
