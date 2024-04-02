@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
+        'hostname'     => '',
         'username'     => '',
         'password'     => '',
         'database'     => '',
@@ -39,9 +39,9 @@ class Database extends Config
         'swapPre'      => '',
         'encrypt'      => false,
         'compress'     => false,
-        'strictOn'     => false,
+        'strictOn'     => true,
         'failover'     => [],
-        'port'         => 3306,
+        'port'         => 3360,
         'numberNative' => false,
     ];
 

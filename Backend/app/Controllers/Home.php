@@ -2,10 +2,31 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+use App\Models\TestModel;
+use CodeIgniter\RESTful\ResourceController;
+use CodeIgniter\API\ResponseTrait;
+
+class Home extends ResourceController
 {
-    public function index(): string
+    use ResponseTrait;
+
+    public function index()
     {
-        return view('welcome_message');
+
+        //Make a new model
+        $model = new TestModel();
+
+        // //Grab the basic results
+        $searchResults = $model -> all();
+
+        
+        //For each for the results
+        // foreach ($searchResults as $item) {
+        //     echo $item['course_id'], "\r\n";
+        // }
+
+
+
+        return $this->respond($searchResults);
     }
 }
