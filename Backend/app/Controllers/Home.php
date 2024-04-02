@@ -12,7 +12,15 @@ class Home extends ResourceController
 
     public function index()
     {
+        $status = array(
+            'code' => 404
+        );
 
+        return $this->respond($status);
+        
+    }
+
+    public function example() {
         //Make a new model
         $model = new TestModel();
 
