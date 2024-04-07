@@ -19,22 +19,4 @@ class Home extends ResourceController
         return $this->respond($status);
         
     }
-
-    public function example() {
-        //Make a new model
-        $model = new TestModel();
-
-        // //Grab the basic results
-        $searchResults = $model -> all();
-
-        
-        //For each for the results
-        // foreach ($searchResults as $item) {
-        //     echo $item['course_id'], "\r\n";
-        // }
-
-
-
-        return $this->respond($searchResults);
-    }
 }
