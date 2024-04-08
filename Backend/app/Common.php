@@ -13,3 +13,30 @@
  *
  * @see: https://codeigniter.com/user_guide/extending/common.html
  */
+
+
+    /**
+     * Function to cleanse array data, mostly used for POSTED data
+     * 
+     * @param $postedArray - the $_POST array
+     * @param $key - the key in the $_POST array to sanitize 
+     * 
+     * @return $cleansedData - the cleansed data from the input array
+     */
+    function cleansePostData($postedArray, $key) {
+        //Temp array to hold cleansed data
+        $cleansedData = [];
+
+        //Iterates through and cleanses the data
+        foreach( $postedArray[$key] as $key => $value) {
+            if ($value != NULL) {   //Has data
+                $cleansedData[$key] = esc($value);
+            }
+        }
+
+        return $cleansedData;
+    }
+
+
+
+ ?>

@@ -7,6 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->get('/example', 'Home::example');
+$routes->get('/Comics/all', 'Comics::retrieveAllComics');
 
-$routes->get('/User', 'User::index');
+$routes->get('/Login', 'User::retrieveUser');
