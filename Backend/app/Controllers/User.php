@@ -39,11 +39,19 @@ class User extends ResourceController {
     
 
     public function createUser() {
+        //Pull from POST
+        $data = [];
+
+        //Clean the data pulled from post
+        foreach ($data as $key => $value) {
+            $cleanData = [$key] = esc($value);
+        }
+
 
     }
 
     public function deleteUser() {
-
+        $this->respondDeleted(null, "User Deleted");
     }
 
     public function updateUser() {

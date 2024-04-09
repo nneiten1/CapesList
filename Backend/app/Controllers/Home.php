@@ -13,10 +13,11 @@ class Home extends ResourceController
     public function index()
     {
         $status = array(
-            'code' => 404
+            'status' => 400,
+            'code' => '404'
         );
 
-        return $this->respond($status);
+        return $this->fail($status);
         
     }
 }

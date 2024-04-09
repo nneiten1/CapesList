@@ -21,6 +21,17 @@
         }
 
         public function getUserID(string $email) {
+            //Data is already cleansed
+
+            $builder = $this -> db -> table ($this -> table);
+
+            $builder -> select('User_ID');
+            $builder -> where('LOGIN_EMAIL', $email);
+
+            $result = $builder-> get(); 
+
+
+            return $result -> getResultArray();
 
         }
 
@@ -39,18 +50,59 @@
 
         public function getEmail(int $userID) {
 
+            $builder = $this -> db -> table($this -> table);
+
+            $builder -> select('LOGIN_EMAIL');
+            $builder -> where('USER_ID', $userID);
+
+            $result = $builder -> get();
+
+            return $result -> getResultArray();
+
         }
 
-        public function createUser(string $email, string $password) {
+        public function createUser($profileData) {
+            //data already cleansed
 
+            $builder = $this -> db -> table($this -> table);
+
+            //Make an intermediary array to hold the values
+            $data = [
+                'FIRST_NAME' =>,
+                'LAST_NAME' =>,
+                'STREET' =>,
+                'CITY' =>,
+                'ZIP' =>,
+                'STATE' =>,
+                'PHONE_NUMBER' =>,
+                'EMAIL' =>,
+                'LOGIN_EMAIL' =>,
+                'LOGIN_PASS' =>,
+            ];
+
+            $builder -> insert($data);
         }
 
-        public function updatePassword(string $oldPassword, string $newPassword) {
+        public function updatePassword(string $newPassword, int $userID) {
+            $builder = $this -> db -> table($this -> table);
 
+            //Now make an update
+            $builder -> set('LOGIN_PASS', $newPassword);
+            $builder -> where('USER_ID', $userID);
+
+            //Returns that the update happened
+            return true;
         }
 
-        public function updateEmail(string $newEmail) {
+        public function updateEmail(string $newEmail, int $userID) {
+            $builder = $this -> db -> table($this -> table);
 
+            //Now make an update
+            $builder -> set('LOGIN_EMAIL', $newEmail);
+            $builder -> where('USER_ID', $userID);
+
+            //Returns that the update happened
+            return true;
         }
     }
     
