@@ -8,9 +8,9 @@ class CentralSeeder extends Seeder {
     public function run() {
         $this -> call('AuthorSeeder');
         $this -> call('PublisherSeeder');
-        // call();
-        // call();
-        // call();
-        // call();
+        $this -> call('UserSeeder'); //Need a user before comic
+        $this -> call('ComicSeeder'); // Need a user before comic
+        $this -> call('ReviewSeeder'); //Need a user before review
+        $this -> call('ListingSeeder'); //Need a comic before listing
     }
 }
