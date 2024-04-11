@@ -16,6 +16,7 @@ $routes->get('/Login', 'User::retrieveUser');
 
 
 //POST
+$routes->post('/Login', 'User::Login');
 
 
 

@@ -92,7 +92,18 @@ class User extends ResourceController {
     }
 
     
+    public function Login() {
+        //Grab from post
 
+        //Check if the login info was not sent
+        if (!isset($_POST['login'])) {
+            $this->fail('No login information');
+        }
+
+
+        $this->respond(null, null ,'Login backend was reached! :)');
+
+    }
 }
 
 
