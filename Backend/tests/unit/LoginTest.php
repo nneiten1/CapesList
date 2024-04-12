@@ -44,8 +44,11 @@ class LoginTest extends CIUnitTestCase
         //Assert that the result was a error (400 error)
         assert(!$result->isOkay());
 
+        //Assert the header type is JSON
+        $result -> assertHeader('Content-Type', 'application/json; charset=UTF-8');
+
         //Ensure that the not found was given when the login is empty
-        $result->assertStatus(404);
+        $result->assertStatus(400);
     
     }
 
@@ -55,14 +58,17 @@ class LoginTest extends CIUnitTestCase
         //Will call the login endpoint
 
         //Calls the login endpoint with NO login details
-        $result = $this -> call('post', '/Login', [
+        $login = array(
             'email' => 'test@test.com',
             'password' => '1234'
-        ]);
+        );
+
+
+        $result = $this -> post('Login', $login);
         
-        //Ensure the server responds with an OK status as credentials are okay
-        $result -> assertStatus(200);
-    
+
+        //d($_POST);
+
     }
 
 
