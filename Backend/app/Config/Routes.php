@@ -16,8 +16,7 @@ $routes->get('/Comics/all', 'Comics::retrieveAllComics');
 
 
 //POST
-//$routes->post('Login', 'User::Login');
-$routes -> resource('user');
+$routes->post('Login', 'User::Login');
 
 
 

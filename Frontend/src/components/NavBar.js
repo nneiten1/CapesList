@@ -43,6 +43,7 @@ function NavBar() {
         <NavItem><NavLink href='/buy'>Buy</NavLink></NavItem>
         <NavItem><NavLink href='/sell'>Sell</NavLink></NavItem>
         <NavItem><NavLink href='/trade'>Trade</NavLink></NavItem>
+        <NavItem><NavLink href='/login'>Login</NavLink></NavItem>
       </NavUL>
    </NavDiv>
   );

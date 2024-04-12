@@ -64,23 +64,6 @@
         public function createUser($profileData) {
             //data already cleansed
 
-            $builder = $this -> db -> table($this -> table);
-
-            //Make an intermediary array to hold the values
-            $data = [
-                'FIRST_NAME' =>,
-                'LAST_NAME' =>,
-                'STREET' =>,
-                'CITY' =>,
-                'ZIP' =>,
-                'STATE' =>,
-                'PHONE_NUMBER' =>,
-                'EMAIL' =>,
-                'LOGIN_EMAIL' =>,
-                'LOGIN_PASS' =>,
-            ];
-
-            $builder -> insert($data);
         }
 
         public function updatePassword(string $newPassword, int $userID) {

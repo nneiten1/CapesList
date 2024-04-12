@@ -5,11 +5,29 @@ import NavBar from './components/NavBar';
 import About from './components/HomePage';
 import reportWebVitals from './reportWebVitals';
 
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from './pages/LoginPage';
+import HomePageRender from './pages/HomePage';
+
+
+//Router
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route index path='/' element={<HomePageRender />}/>
+        <Route path="Login" element={<LoginPage />}>
+          
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NavBar></NavBar>
-    <About></About>
+      <App />
   </React.StrictMode>
 );
 
