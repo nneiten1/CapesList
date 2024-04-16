@@ -5,7 +5,9 @@ namespace App\Controllers;
 use App\Models\Users;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
-use CodeIgniter\Services\session;
+use CodeIgniter\Cookie\Cookie;
+use CodeIgniter\Cookie\CookieStore;
+use Config\Services;
 
 
 class User extends ResourceController {
