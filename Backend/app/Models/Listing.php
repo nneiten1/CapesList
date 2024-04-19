@@ -6,32 +6,30 @@
 
     
     class Listing extends Model {
-        //public $table = "User";
         protected $db;
+        protected $table;
 
-        public function getUserID(string $email) {
+        public function __construct() {
+            $this -> db = \Config\Database::connect();
 
+            $this -> table = 'Listing';
         }
 
-        public function getPassword(int $userID) {
 
+        public function getAllListings() {
+            $builder = $this -> db -> table($this -> table);
+
+            $builder->select('LISTING_ID, FIRST_NAME AS SELLER, PRICE, POSTING_TYPE, `STATUS`, LISTING_DATE');
+            $builder->from('`User`');
+            $builder->where('SELLER_USER_ID = USER_ID');
+
+            $results = $builder -> get();
+
+
+            return $results->getResultArray();
         }
 
-        public function getEmail(int $userID) {
-
-        }
-
-        public function createUser(string $email, string $password) {
-
-        }
-
-        public function updatePassword(string $oldPassword, string $newPassword) {
-
-        }
-
-        public function updateEmail(string $newEmail) {
-
-        }
+       
     }
     
 

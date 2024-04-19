@@ -25,6 +25,16 @@ class Listings extends ResourceController {
 
     }
 
+    public function allListings() {
+        $model = new Listing();
+
+        $result = $model -> getAllListings();
+
+
+
+        return $this -> respond($result);
+    }
+
     
 
 }

@@ -8,7 +8,9 @@ import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 import HomePageRender from './pages/HomePage';
+//import BuyPage from './pages/BuyPage';
 
 
 //Router
@@ -17,8 +19,9 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route index path='/' element={<HomePageRender />}/>
-        <Route path="Login" element={<LoginPage />}>
-          
+        <Route path="Login" element={<LoginPage />}/>
+        <Route path="Signup" element={<SignupPage />}>
+        
         </Route>
       </Routes>
     </BrowserRouter>

@@ -13,11 +13,12 @@ $routes->get('/Comics/all', 'Comics::retrieveAllComics');
 
 //$routes->get('/Login', 'User::Login');
 
+$routes->get('/Listings/all', 'Listings::allListings');
 
 
 //POST
 $routes->post('Login', 'User::Login');
-
+$routes->post('/Signup', 'User::createUser');
 
 
 //DELETE

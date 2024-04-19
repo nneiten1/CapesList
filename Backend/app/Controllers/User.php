@@ -20,14 +20,29 @@ class User extends ResourceController {
     
 
     public function createUser() {
-        //Pull from POST
-        $data = [];
-
-        //Clean the data pulled from post
-        foreach ($data as $key => $value) {
-            $cleanData = [$key] = esc($value);
+        //Prevents from random API access, done only through form
+        if (!isset($_POST['account'])) {
+            $this->fail("No account details submitted");
         }
 
+        //Pull from the POST array in account index
+        $cleansedPostData = [
+            "FIRST_NAME" => esc($_POST['account']['fname']),
+            "LAST_NAME" => esc($_POST['account']['lname']),
+            "STREET" => esc($_POST['account']['street']),
+            "CITY" => esc($_POST['account']['city']),
+            "ZIP" => esc($_POST['account']['state']),
+            "STATE" => esc($_POST['account']['zip']),
+            "PHONE_NUMBER" => esc($_POST['account']['phone']),
+            "EMAIL" => esc($_POST['account']['email']),
+            "LOGIN_EMAIL" => esc($_POST['account']['email']),
+            "LOGIN_PASS" => esc($_POST['account']['password']),
+        ];
+
+        //Now make the model and insert the user
+        $model = new Users();
+
+        $model->createUser($cleansedPostData);
 
     }
 
@@ -82,22 +97,15 @@ class User extends ResourceController {
         $loggedIn = $this->validateUserLogin($cleansedPosted);
         
         if ($loggedIn) {
-            //Load session library
-            $session = \Config\Services::session();
-            $session -> start();
+           
+            setcookie("CapesList", "TESTING");
 
-
-            $session->set('state', ['email' => 'tennis']);
-
-            $_SESSION['email'] = 'test';
-            
-
-            return $this -> respond(null, 200, 'Login was successful :)');
+            return redirect()->back()->withCookies();
         }
 
 
         //Login unsuccessful
-        return $this -> fail(null, 400, 100, 'Failed login :(');
+        return redirect('/login');
     }
 }
 

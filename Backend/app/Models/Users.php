@@ -63,7 +63,9 @@
 
         public function createUser($profileData) {
             //data already cleansed
+            $builder = $this-> db -> table($this -> table);
 
+            $builder -> insert($profileData);
         }
 
         public function updatePassword(string $newPassword, int $userID) {

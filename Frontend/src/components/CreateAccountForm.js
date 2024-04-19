@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const LoginStack = styled.div`
@@ -82,29 +83,48 @@ const SubmitLogin = styled.button`
   }
 }
 `;
-function LoginForm({loginState}) {
+function CreateAccountForm({createAccount}) {
     return (
-        <form action="http://localhost:80/Login" method="POST">
+        <form action="http://localhost:80/Signup" method="POST">
         <LoginStack>
         <LoginDiv>
         <LoginHeader>CAPESLIST</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="User Name" type="text" name='login[email]' value={ loginState.email }required></LoginInput>
+            <LoginInput placeholder="First Name" type="text" name='account[fname]' value={createAccount.fname} required></LoginInput>
             </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="Password" type="password" name='login[password]' value={ loginState.password } required></LoginInput>
+            <LoginInput placeholder="Last Name" type="text" name='account[lname]' value={createAccount.lname} required></LoginInput>
             </LoginDiv>
             <LoginDiv>
-            <SubmitLogin type="submit">Log In</SubmitLogin>
+            <LoginInput placeholder="Street" type="text" name='account[street]' value={createAccount.street} required></LoginInput>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginInput placeholder="City" type="text" name='account[city]' value={createAccount.city} required></LoginInput>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginInput placeholder="State" type="text" name='account[state]' value={createAccount.state} required></LoginInput>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginInput placeholder="Zip" type="text" name='account[zip]' value={createAccount.zip} required></LoginInput>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginInput placeholder="Phone Number" type="text" name='account[phone]' value={createAccount.phone} required></LoginInput>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginInput placeholder="Email" type="text" name='account[email]' value={createAccount.email} required></LoginInput>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginInput placeholder="Password" type="password" name='account[password]' value={createAccount.password} required></LoginInput>
+            </LoginDiv>
+            <LoginDiv>
+            <SubmitLogin type="submit">Create Account</SubmitLogin>
             </LoginDiv>
 
 
-            <p>Don't have an account? <a href='/Signup'>Sign Up Here!</a></p>
         </LoginStack>
         </form>
-        
     );
 }
 
-export default LoginForm;
+export default CreateAccountForm;
