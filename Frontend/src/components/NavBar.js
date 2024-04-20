@@ -35,6 +35,8 @@ const NavLink = styled.a`
     
     }
 `
+
+
 function NavBar() {
   return (
    <NavDiv>

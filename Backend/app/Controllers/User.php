@@ -99,6 +99,7 @@ class User extends ResourceController {
         if ($loggedIn) {
            
             setcookie("CapesList", "TESTING");
+            setcookie("CapesListID", "1");
 
             return redirect()->back()->withCookies();
         }
