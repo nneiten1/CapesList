@@ -4,25 +4,51 @@ import './index.css';
 import NavBar from './components/NavBar';
 import About from './components/HomePage';
 import reportWebVitals from './reportWebVitals';
+import { CookiesProvider } from "react-cookie";
 
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+
+//Create Pages
+import CreateAccountPage from './pages/CreateAccountPage';
+import CreateListingPage from './pages/CreateListingPage';
+
+//User Pages
+import UsersReviewPage from './pages/UsersReviewPage';
+import ViewUserHomePage from './pages/ViewUserHomePage';
+
+
+
 import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
 import HomePageRender from './pages/HomePage';
 import BuyPage from './pages/BuyPage';
-//import BuyPage from './pages/BuyPage';
 
+
+//import BuyPage from './pages/BuyPage';
 
 //Router
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Index */}
         <Route index path='/' element={<HomePageRender />}/>
-        <Route path="Login" element={<LoginPage />}/>
-        <Route path="Signup" element={<SignupPage />}/>
-        <Route path="buy" element={<BuyPage />}>
+
+
+        {/* User pages */}
+        <Route path="/user/login" element={<LoginPage />}/>
+        <Route path="/user/account" element={<ViewUserHomePage />}/>
+        <Route path="/user/reviews/:userID" element={<UsersReviewPage />}/>
+
+        {/* Creation Pages */}
+        <Route path="/create/signup" element={<CreateAccountPage />}/>
+        <Route path="/create/listing" element={<CreateListingPage /> }/>
+
+        {/* Viewings */}
+        <Route path="/view/buy" element={<BuyPage />}>
+        
+        
+        
         
         </Route>
       </Routes>
@@ -32,7 +58,9 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <CookiesProvider>
       <App />
+    </CookiesProvider>
   </React.StrictMode>
 );
 

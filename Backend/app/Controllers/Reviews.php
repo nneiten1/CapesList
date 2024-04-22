@@ -25,6 +25,19 @@ class Reviews extends ResourceController {
 
     }
 
+
+    public function getUserReviews($id) {
+        //Cleanse the ID
+        $cleansedID = esc($id);
+
+        $model = new Review();
+
+        $result = $model->getUsersReviews($cleansedID);
+
+        return $this->respond($result);
+
+    }
+
     
 
 }

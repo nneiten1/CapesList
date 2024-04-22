@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { Cookies } from "react-cookie";
 
 const LoginStack = styled.div`
     display: flex;
@@ -45,6 +47,32 @@ const LoginInput = styled.input`
   }
 `;
 
+const LoginHidden = styled.input`
+  display: none;
+
+`;
+
+
+
+const LoginSelect = styled.select`
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  justify-content: center;
+  position: relative;
+  right:0;
+
+  /* Add any additional styles you want here */
+
+
+  &:focus {
+    border-color: #007bff; /* Change border color when input is focused */
+  }
+`;
+
 const SubmitLogin = styled.button`
   background-color: #0a6bff;
   border-radius: 4px;
@@ -82,31 +110,56 @@ const SubmitLogin = styled.button`
   }
 }
 `;
-function LoginForm({loginState}) {
+function CreateListingForm({listingData}) {
+  //Check for login cookie, if not, then redirect to the homepage
+    //Grab cookies from browser
+    let cookies = new Cookies();
+
+    //Now get the ID cookie for USER ID
+    let capesListCookie = cookies.get('CapesListID');
+
     return (
-        <form action="http://localhost:80/Login" method="POST">
+        <form action="http://localhost:80/Create/Listing" method="POST">
         <LoginStack>
         <LoginDiv>
-        <LoginHeader>CAPESLIST</LoginHeader>
+        <LoginHeader>ADD LISTING</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="User Name" type="text" name='login[email]' value={ loginState.email }required></LoginInput>
+            <LoginInput placeholder="Comic Name" type="text" required></LoginInput>
             </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="Password" type="password" name='login[password]' value={ loginState.password } required></LoginInput>
+            <LoginInput placeholder="Price" type="text" value={listingData.price} required></LoginInput>
             </LoginDiv>
             <LoginDiv>
-            <SubmitLogin type="submit">Log In</SubmitLogin>
+            <LoginSelect defaultValue="Sale type" value={listingData.sale_type} required>
+                <option value="" disabled selected>Sale Type</option>
+                <option value="buy">Buy</option>
+                <option value="trade">Trade</option>
+            </LoginSelect>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginInput placeholder="Listing Date" type="text" value={listingData.date}required></LoginInput>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginHidden placeholder="Seller_ID" type="text" value={listingData.seller_id} ></LoginHidden>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginHidden placeholder="Buyer_ID" type="text" value={listingData.buyer_ID} defaultValue={capesListCookie}></LoginHidden>
+            </LoginDiv>
+            <LoginDiv>
+            <LoginHidden placeholder="Listing_status" type="text" defaultValue={"sale"} value={listingData.status} required></LoginHidden>
             </LoginDiv>
 
 
+
             <LoginDiv>
-              <LoginHeader>Don't have an account? <LoginHeader><a href='/create/signup'>Sign Up Here!</a></LoginHeader></LoginHeader>
+            <SubmitLogin type="submit">Create Listing</SubmitLogin>
             </LoginDiv>
+
+
         </LoginStack>
         </form>
-        
     );
 }
 
-export default LoginForm;
+export default CreateListingForm;

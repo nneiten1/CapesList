@@ -41,10 +41,10 @@ function NavBar() {
   return (
    <NavDiv>
       <NavUL>
-        <NavItem><NavLink href='/buy'>Buy</NavLink></NavItem>
+        <NavItem><NavLink href='/view/buy'>Buy</NavLink></NavItem>
         <NavItem><NavLink href='/sell'>Sell</NavLink></NavItem>
-        <NavItem><NavLink href='/trade'>Trade</NavLink></NavItem>
-        <NavItem><NavLink href='/login'>Login</NavLink></NavItem>
+        <NavItem><NavLink href='/view/buy'>Trade</NavLink></NavItem>
+        <NavItem><NavLink href='/user/login'>Login</NavLink></NavItem>
       </NavUL>
    </NavDiv>
   );

@@ -1,5 +1,5 @@
 import {Outlet, Link} from "react-router-dom";
-import CreateAccountForm from "../components/CreateAccountForm";
+import CreateAccountForm from "../components/Creates/CreateAccountForm";
 import NavBar from '../components/NavBar';
 import axios from "axios";
 import React, { useState } from "react";
@@ -27,7 +27,7 @@ const handleSubmit = (e) => {
     });
 }
 
-const SignupPage = () => {
+const CreateAccountPage = () => {
     accountFormData = useState({
         fname: "",
         lname: "",
@@ -51,4 +51,4 @@ const SignupPage = () => {
 }
 
 
-export default SignupPage;
+export default CreateAccountPage;

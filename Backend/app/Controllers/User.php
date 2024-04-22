@@ -6,9 +6,8 @@ use App\Models\Users;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\Cookie\Cookie;
-use CodeIgniter\Cookie\CookieStore;
-use Config\Services;
 
+use CodeIgniter\I18n\Time;
 
 class User extends ResourceController {
 
@@ -97,10 +96,14 @@ class User extends ResourceController {
         $loggedIn = $this->validateUserLogin($cleansedPosted);
         
         if ($loggedIn) {
-           
-            setcookie("CapesList", "TESTING");
-            setcookie("CapesListID", "1");
+            //Make model and get the user ID
+            $model = new Users();
+            $userID = $model -> getUserID($cleansedPosted['email']);
 
+            //Make the cookie
+           setcookie("CapesListID", $userID[0]["User_ID"]);
+
+            //Respond with the cookie and back to the homepage
             return redirect()->back()->withCookies();
         }
 
@@ -108,6 +111,7 @@ class User extends ResourceController {
         //Login unsuccessful
         return redirect('/login');
     }
+
 }
 
 

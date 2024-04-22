@@ -13,7 +13,14 @@ class Listings extends ResourceController {
     private string $table = 'listing';
     
 
-    public function createUser() {
+    public function createListing() {
+
+        //Prevents from random API access, done only through form
+        if (!isset($_POST['listing'])) {
+            $this->fail("No account details submitted");
+        }
+
+        return $this->respond($_POST);
 
     }
 
