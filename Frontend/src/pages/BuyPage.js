@@ -4,23 +4,32 @@ import Listing from "../components/ListingItem";
 
   
 
-function Listings() {
+const SetListings = () => {
+  const [listings, useListings] = useState([]);
+  useEffect(() => {
+      const FetchData = async () => {
+         const res = await axios.get("http://localhost:5000/listings")
+          useListings(res);
+      }
+      FetchData();}, []);
+  return (
+      <div>
+        {listings.map((listing) => (
+          <Listing key={listing.id} listing={listing} />
+        ))}
+      </div>
+    );
 
-  axios.get("http://localhost:80/Comics/all")
-  .then ((response) => {
-    console.log(response.data)
-  });
-    
-};
-
-
-const listing = () =>{
-  Listings();
-
-    return (
-      <a>Test</a>
-    )
 }
 
 
-export default listing;
+
+const BuyPage = () => {
+  return (
+      <SetListings />
+  );
+  }
+
+
+
+export default BuyPage;

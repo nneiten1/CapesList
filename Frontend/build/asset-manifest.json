@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e61b13aa.css",
+    "main.js": "/static/js/main.28cda6bd.js",
+    "static/js/453.4193458e.chunk.js": "/static/js/453.4193458e.chunk.js",
+    "static/media/Capeslist-Logo-(Stolen-has-to-be-changed).png": "/static/media/Capeslist-Logo-(Stolen-has-to-be-changed).c9e908dd329d8f141619.png",
+    "index.html": "/index.html",
+    "main.e61b13aa.css.map": "/static/css/main.e61b13aa.css.map",
+    "main.28cda6bd.js.map": "/static/js/main.28cda6bd.js.map",
+    "453.4193458e.chunk.js.map": "/static/js/453.4193458e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e61b13aa.css",
+    "static/js/main.28cda6bd.js"
+  ]
+}
