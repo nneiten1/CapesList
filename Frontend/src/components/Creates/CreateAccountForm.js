@@ -90,28 +90,18 @@ function CreateAccountForm({createAccount}) {
         <LoginDiv>
         <LoginHeader>CAPESLIST</LoginHeader>
         </LoginDiv>
-            <LoginDiv>
+            <LoginDiv>  
             <LoginInput placeholder="First Name" type="text" name='account[fname]' value={createAccount.fname} required></LoginInput>
-            </LoginDiv>
-            <LoginDiv>
             <LoginInput placeholder="Last Name" type="text" name='account[lname]' value={createAccount.lname} required></LoginInput>
             </LoginDiv>
             <LoginDiv>
             <LoginInput placeholder="Street" type="text" name='account[street]' value={createAccount.street} required></LoginInput>
-            </LoginDiv>
-            <LoginDiv>
             <LoginInput placeholder="City" type="text" name='account[city]' value={createAccount.city} required></LoginInput>
-            </LoginDiv>
-            <LoginDiv>
             <LoginInput placeholder="State" type="text" name='account[state]' value={createAccount.state} required></LoginInput>
-            </LoginDiv>
-            <LoginDiv>
             <LoginInput placeholder="Zip" type="text" name='account[zip]' value={createAccount.zip} required></LoginInput>
             </LoginDiv>
             <LoginDiv>
             <LoginInput placeholder="Phone Number" type="text" name='account[phone]' value={createAccount.phone} required></LoginInput>
-            </LoginDiv>
-            <LoginDiv>
             <LoginInput placeholder="Email" type="text" name='account[email]' value={createAccount.email} required></LoginInput>
             </LoginDiv>
             <LoginDiv>
