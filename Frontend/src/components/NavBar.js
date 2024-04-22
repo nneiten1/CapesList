@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Cookies } from 'react-cookie';
 
 
 const NavDiv = styled.div`
@@ -36,6 +37,18 @@ const NavLink = styled.a`
     }
 `
 
+//Displays different button based on if logged in or not
+function LoginOrAccountButton() {
+    let cookie = new Cookies();
+    let CapesListID = cookie.get("CapesListID");
+
+    //Check if the cookie is defined
+    if (typeof CapesListID !== 'undefined') {
+        return (<NavItem><NavLink href='/user/account'>Account</NavLink></NavItem>);
+    } else {
+        return (<NavItem><NavLink href='/user/login'>Login</NavLink></NavItem>);
+    }
+}
 
 function NavBar() {
   return (
@@ -44,7 +57,7 @@ function NavBar() {
         <NavItem><NavLink href='/view/buy'>Buy</NavLink></NavItem>
         <NavItem><NavLink href='/sell'>Sell</NavLink></NavItem>
         <NavItem><NavLink href='/view/buy'>Trade</NavLink></NavItem>
-        <NavItem><NavLink href='/user/login'>Login</NavLink></NavItem>
+        <LoginOrAccountButton />
       </NavUL>
    </NavDiv>
   );

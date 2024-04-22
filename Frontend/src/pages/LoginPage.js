@@ -3,10 +3,13 @@ import LoginForm from "../components/LoginForm";
 import NavBar from '../components/NavBar';
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+let navigate;
 let loginData;
 
 const handleSubmit = (e) => {
+
     e.preventDefault(); //Keeps from page reload
 
     const userData = {
@@ -15,12 +18,12 @@ const handleSubmit = (e) => {
     };
 
     axios.post("http://localhost:80/Login", userData).then((response) => {
-        //Check for the redirect property
-
     });
 }
 
 const LoginPage = () => {
+    navigate = useNavigate();
+
     loginData = useState({
         email: "",
         password: ""

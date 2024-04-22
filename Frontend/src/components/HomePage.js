@@ -8,6 +8,7 @@ const AboutImg = styled.img`
 
 
 function About() {
+  
   return (
     <AboutImg src={logo}>
     </AboutImg>

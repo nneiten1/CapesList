@@ -17,6 +17,7 @@ const HomePageRender = () => {
     if(typeof capesListCookie !== 'undefined') {
         //LoggedIn
         console.log("Logged IN!");
+
     } else {
         console.log("Not Logged in!");
     }
