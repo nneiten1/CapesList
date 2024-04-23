@@ -38,15 +38,17 @@ const BuyPage = () => {
   useEffect(() => {
       axios.get("http://localhost:80/Comics/all")
         .then(({ data }) => {
-              updatePost(data[0]); 
-              console.log(data[0]);
+              updatePost(data); 
+              console.log(data);
         })
     },[])
-  console.log("This is the post after update post: ", Object.entries(post));
+  console.log("This is the post after update post: ", post);
   
   return (
           <div>
-              <Listing key={post.COMIC_ID} listing={post} />
+            {post.map((listing) => (
+              <Listing key={listing.id} listing={listing} />
+            ))}
           </div>
         );
     

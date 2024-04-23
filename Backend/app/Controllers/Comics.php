@@ -41,6 +41,8 @@ class Comics extends ResourceController {
 
         $result = $model -> all();
 
+        //d($result);
+
         return $this->respond($result);
     }
 
