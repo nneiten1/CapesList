@@ -19,9 +19,10 @@ $routes->post('Login', 'User::Login');
 $routes->post('/Logout', 'User::Logout');
 $routes->post('/Signup', 'User::createUser');
 $routes->post('/Create/Listing', 'Listings::createListing');
-
+$routes->post("/User/Delete", 'User::deleteUser');
 
 //DELETE
+
 
 
 

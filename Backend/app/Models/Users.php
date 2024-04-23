@@ -89,6 +89,15 @@
             //Returns that the update happened
             return true;
         }
+
+        public function deleteUser(int $userID) {
+            $builder = $this -> db -> table($this -> table);
+
+            // //Now make the delete with the userID
+            // $builder -> where('USER_ID', $userID);
+            // $builder -> delete();
+
+        }
     }
     
 

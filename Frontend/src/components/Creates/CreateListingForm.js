@@ -125,7 +125,9 @@ function CreateListingForm({listingData}) {
         <LoginHeader>ADD LISTING</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="Comic Name" type="text" required></LoginInput>
+            <LoginSelect placeholder="Comic" required>
+              <option value="" disabled selected>Comic Name</option>
+            </LoginSelect>
             </LoginDiv>
             <LoginDiv>
             <LoginInput placeholder="Price" type="text" value={listingData.price} required></LoginInput>

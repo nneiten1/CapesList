@@ -46,7 +46,24 @@ class User extends ResourceController {
     }
 
     public function deleteUser() {
-        $this->respondDeleted(null, "User Deleted");
+         //Prevents from random API access, done only through form
+         if (!isset($_POST['delete'])) {
+            $this->fail("No account details submitted");
+        }
+        d($_POST['data']);
+        // $cleansedPostData = [
+        //     "USER_ID" => esc($_POST['delete']['ID'])
+        // ];
+
+        //d($_POST);
+
+        //$model = new Users();
+
+        //$model->delteUser($cleansedPostData);
+        
+        //$this->respondDeleted(null, "User Deleted");
+
+        return $this -> respond($_POST);
     }
 
 
