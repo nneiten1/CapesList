@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Listing from "../components/ListingItem";
-<<<<<<< HEAD
-=======
 import { BuyPageDiv } from "../components/BuyPageStyled";
 
->>>>>>> 49d36bbb29942e2e0e86f07d2b36ef1af310fd2a
 
 
 const BuyPage = () => {
