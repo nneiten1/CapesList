@@ -35,6 +35,19 @@
            return $result -> getResultArray();
         }
 
+        public function getComicByUserID(int $userID) {
+            $escComicID = esc($userID);
+ 
+            $builder = $this -> db -> table($this -> table);
+ 
+            $builder -> select('*');
+            $builder -> where('OWNER_ID', $escComicID);
+            
+            $result = $builder -> get();
+ 
+            return $result -> getResultArray();
+         }
+
         
 
         /**

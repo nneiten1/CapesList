@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Cookies } from "react-cookie";
+import axios from 'axios';
+import ComicTitle from '../ComicTitle';
 
 const LoginStack = styled.div`
     display: flex;
@@ -110,6 +112,9 @@ const SubmitLogin = styled.button`
   }
 }
 `;
+
+
+
 function CreateListingForm({listingData}) {
   //Check for login cookie, if not, then redirect to the homepage
     //Grab cookies from browser
@@ -117,6 +122,18 @@ function CreateListingForm({listingData}) {
 
     //Now get the ID cookie for USER ID
     let capesListCookie = cookies.get('CapesListID');
+
+
+    const [post, updatePost] =  useState(["Hello"]);
+    useEffect(() => {
+      axios.get(`http://localhost:80/Comics/${capesListCookie}`)
+        .then(({ data }) => {
+              updatePost(data); 
+              console.log(data);
+        })
+    },[])
+    console.log("This is the post after update post: ", post);
+  
 
     return (
         <form action="http://localhost:80/Create/Listing" method="POST">
@@ -127,6 +144,10 @@ function CreateListingForm({listingData}) {
             <LoginDiv>
             <LoginSelect placeholder="Comic" required>
               <option value="" disabled selected>Comic Name</option>
+              
+              {post.map((comic) => (
+              <ComicTitle key={comic.id} comic={comic} />
+                ))}
             </LoginSelect>
             </LoginDiv>
             <LoginDiv>

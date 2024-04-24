@@ -46,6 +46,17 @@ class Comics extends ResourceController {
         return $this->respond($result);
     }
 
+    public function getUserComics($userID) {
+        //Clean data
+        $cleanID = esc($userID);
+
+        //Now make model to get comics
+        $model = new Comic();
+
+        $result = $model->getComicByUserID($cleanID);
+
+        return $this->respond(($result));
+    }
     
 
 }
