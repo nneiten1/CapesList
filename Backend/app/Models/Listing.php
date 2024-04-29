@@ -48,6 +48,18 @@
             $builder -> delete(['COMIC_ID' => $comicID]);
         }
 
+        public function getUsersListings($id) {
+            $builder = $this -> db -> table($this->table);
+
+            //Now get based on the users id
+            $builder->select('*');
+            $builder -> where('SELLER_USER_ID', $id);
+
+            $results = $builder -> get();
+
+            return $results->getResultArray();
+        }
+
        
     }
     

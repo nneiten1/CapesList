@@ -20,6 +20,7 @@ $routes->get('/Comics/all', 'Comics::retrieveAllComics');
 $routes->get('/Reviews/(:num)', 'Reviews::getUserReviews/$1');
 $routes->get('/Comics/(:num)', 'Comics::getUserComics/$1');
 $routes->get('/Listings/all', 'Listings::allListings');
+$routes->get('/Listings/(:num)', 'Listings::getUsersListings/$1');
 // $routes->get('/')
 
 
