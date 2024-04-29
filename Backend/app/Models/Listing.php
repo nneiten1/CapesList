@@ -25,8 +25,27 @@
 
             $results = $builder -> get();
 
+            dd($results);
+
 
             return $results->getResultArray();
+        }
+
+
+        public function createListing($data) {
+            $builder = $this -> db -> table($this -> table);
+
+            //Now execute the insert
+            //Prevents from duplicate listings from being made
+            $builder -> insert($data);
+        }
+
+
+        public function deleteByComicID($comicID) {
+            $builder = $this -> db -> table($this->table);
+
+            //Now delete based on matching comic ID's
+            $builder -> delete(['COMIC_ID' => $comicID]);
         }
 
        

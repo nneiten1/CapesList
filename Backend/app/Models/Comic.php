@@ -1,16 +1,33 @@
 <?php
-    
+    /**
+     * 
+     * Comic DB table's Model
+     * 
+     * @author Elliott Hager
+     *
+     */
+
+
+
     namespace App\Models;
 
     use CodeIgniter\Model;
 
-    
+    /**
+     * 
+     * A class to represent DB operations on the Comic DB table
+     * 
+     */
     class Comic extends Model {
         protected $db; //DB instance
-        //protected $builder; //Query builder
         protected $table;   //Table to be used
 
 
+        /**
+         * 
+         * Default constructor to create a DB session for the Comic table
+         * 
+         */
         public function __construct() {
         
             //Connects to the database
@@ -22,6 +39,13 @@
            $this -> table = 'Comic';
         }
 
+        /**
+         * 
+         * Returns all the comics matching a comic's id
+         * 
+         * @param $comicID - The ID of the comic
+         * @return $result - Array of the comic results from the database
+         */
         public function getByComicID(int $comicID) {
            $escComicID = esc($comicID);
 
@@ -35,6 +59,14 @@
            return $result -> getResultArray();
         }
 
+        /**
+         * 
+         * Gets all of the comics a user has by userID
+         * 
+         * @param $userID - the users ID
+         * @return $result - An array of the users comics
+         * 
+         */
         public function getComicByUserID(int $userID) {
             $escComicID = esc($userID);
  
@@ -52,14 +84,27 @@
 
         /**
          * 
+         * Creates a comic in the database
          * 
          * @param $data - array for the data to be sent to
          */
         public function createComic($data) {
+            //Sets the table to be the comics table
+            $builder = $this -> db -> table($this -> table);
+
+            //Inserts the comic into the db
+            $builder->insert($data);
             
         }
 
 
+        /**
+         * 
+         * Retrieves all of the comics in the database
+         * 
+         * 
+         * @return $result - Returns an array from all of the comics in the database
+         */
         public function all() {
             //This is a query builder ($builder)
             //$this -> db is the database connection
@@ -84,6 +129,16 @@
             return $results -> getResultArray();
 
         }
+
+
+
+        public function deleteComic($id) {
+            $builder = $this -> db -> table($this -> table);
+
+            $builder->delete(['COMIC_ID' => $id]);
+        }
+
+
     }
     
 

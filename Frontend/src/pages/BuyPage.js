@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Listing from "../components/ListingItem";
 import { BuyPageDiv } from "../components/BuyPageStyled";
+import NavBar from "../components/NavBar";
 
 
 
@@ -14,14 +15,18 @@ const BuyPage = () => {
               console.log(data);
         })
     },[])
-  console.log("This is the post after update post: ", post);
   
   return (
-          <BuyPageDiv>
-            {post.map((listing) => (
-              <Listing key={listing.id} listing={listing} />
-            ))}
-          </BuyPageDiv>
+          <>
+            <NavBar></NavBar>     
+            <BuyPageDiv>
+              {post.map((listing) => (
+                <Listing key={listing.id}  listing={listing} />
+             ))}
+            </BuyPageDiv>
+          
+          </>
+          
         );
     
 };

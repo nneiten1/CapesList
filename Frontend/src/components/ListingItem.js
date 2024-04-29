@@ -2,11 +2,11 @@ function Listing ({ listing }) {
         var altText = "Image of the comic"
         return (
           <div>
-            <h2>{listing.TITLE}</h2>
+            <h2 style={{color: 'White'}}>{listing.TITLE}</h2>
             <p>{listing.RELEASE_DATE}</p>
             <p>{listing.PRICE}</p>
             <p>{listing.ISSUE_NUMBER}</p>
-            <img alt={altText} src={listing.img}></img>
+            <img style={{color: 'White'}} alt={altText} src={listing.img}></img>
           </div>
         );
 };

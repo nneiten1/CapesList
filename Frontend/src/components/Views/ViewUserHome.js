@@ -77,6 +77,27 @@ function ViewUserHome() {
         navigate("/create/listing");
     }
 
+    //When user clicks add Listing
+    const addPublisherClick = () => {
+        navigate("/create/publisher");
+    }
+
+    //When user clicks add Listing
+    const addAuthorClick = () => {
+        console.log("Adding Author");
+    }
+
+
+    //When user clicks add Listing
+    const addReviewClick = () => {
+        console.log("Adding review");
+    }
+
+    //When user clicks add Listing
+    const addComicClick = () => {
+        console.log("Adding comic");
+    }
+
     const deleteAccountClick = () => {
         console.log("Deleting Account :(");
 
@@ -91,6 +112,11 @@ function ViewUserHome() {
         };
 
         axios.post("http://localhost:80/User/Delete", data);
+    }
+
+
+    const deleteComicClick = () => {
+        navigate("/delete/comic");
     }
 
     const updateAccountClick = () => {
@@ -124,6 +150,33 @@ function ViewUserHome() {
                     <StyledButton onClick={addListingClick}>Add listing</StyledButton>
                 </UserActionDiv>
                 <UserActionDiv></UserActionDiv>
+
+                <UserActionDiv>
+                    <StyledButton onClick={addPublisherClick}>Add Publisher</StyledButton>
+                </UserActionDiv>
+                <UserActionDiv></UserActionDiv>
+
+                <UserActionDiv>
+                    <StyledButton onClick={addAuthorClick}>Add Author</StyledButton>
+                </UserActionDiv>
+                <UserActionDiv></UserActionDiv>
+
+                <UserActionDiv>
+                    <StyledButton onClick={addComicClick}>Add Comic</StyledButton>
+                </UserActionDiv>
+                <UserActionDiv></UserActionDiv>
+
+                <UserActionDiv>
+                    <StyledButton onClick={addReviewClick}>Add Review</StyledButton>
+                </UserActionDiv>
+                <UserActionDiv></UserActionDiv>
+
+
+                <UserActionDiv>
+                    <StyledButton onClick={deleteComicClick}>Delete Comic</StyledButton>
+                </UserActionDiv>
+                <UserActionDiv></UserActionDiv>
+
                 <UserActionDiv>
                     <StyledButton onClick={userAccountLogout}>Logout</StyledButton>
                 </UserActionDiv>

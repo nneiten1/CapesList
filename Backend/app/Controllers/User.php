@@ -1,4 +1,9 @@
 <?php
+/**
+ * User's table controller and util functions
+ * 
+ * @author Elliott Hager
+ */
 
 namespace App\Controllers;
 
@@ -9,6 +14,11 @@ use CodeIgniter\Cookie\Cookie;
 
 use CodeIgniter\I18n\Time;
 
+/**
+ * 
+ * Class to represent the User's table and associated actions with the DB data
+ * 
+ */
 class User extends ResourceController {
 
     use ResponseTrait;
@@ -17,7 +27,11 @@ class User extends ResourceController {
 
     
     
-
+    /**
+     * 
+     * Cleanses POST data and creates a user in the DB
+     * 
+     */
     public function createUser() {
         //Prevents from random API access, done only through form
         if (!isset($_POST['account'])) {
@@ -45,6 +59,11 @@ class User extends ResourceController {
 
     }
 
+    /**
+     * 
+     * Deletes a user based on user ID
+     * 
+     */
     public function deleteUser() {
          //Prevents from random API access, done only through form
          if (!isset($_POST['delete'])) {
@@ -66,7 +85,13 @@ class User extends ResourceController {
         return $this -> respond($_POST);
     }
 
-
+    /**
+     * 
+     * Validates user's email and password matches the DB value
+     * 
+     * @param $postedLogin - User's submitted login array
+     * @return bool - user's login was successful
+     */
     private function validateUserLogin($postedLogin) {
         //Make a model
         $model = new Users();
@@ -93,7 +118,12 @@ class User extends ResourceController {
     }
     
 
-
+    /**
+     * 
+     * Handles the login submission from a user, cleanses data and creates cookie if successful
+     * 
+     * @return redirect - Goes to home page if successful, goes back to login form if not
+     */
     public function Login() {
 
         //Grab from post
@@ -112,22 +142,31 @@ class User extends ResourceController {
 
         //validate the login
         $loggedIn = $this->validateUserLogin($cleansedPosted);
+
         
         if ($loggedIn) {
+            //d("Now logging in...");
+
             //Make model and get the user ID
             $model = new Users();
             $userID = $model -> getUserID($cleansedPosted['email']);
 
+            //d("Found the user...");
+
             //Make the cookie
            setcookie("CapesListID", $userID[0]["User_ID"]);
+
+           //dd("Setting the cookie....");
 
             //Respond with the cookie and back to the homepage
             return redirect()->back()->withCookies();
         }
 
+        //Redirects
+        header('Location: http://localhost:3000/user/login', true, 301);
+        exit;
+        return;
 
-        //Login unsuccessful
-        return redirect('/login');
     }
 
 }

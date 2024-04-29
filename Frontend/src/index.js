@@ -12,6 +12,12 @@ import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 //Create Pages
 import CreateAccountPage from './pages/CreateAccountPage';
 import CreateListingPage from './pages/CreateListingPage';
+import CreateComicPage from './pages/CreateComicPage';
+import CreateReviewPage from './pages/CreateReviewPage';
+import CreatePublisherPage from './pages/CreatePublisher';
+
+//Deletion pages
+import DeleteComicPage from './pages/DeleteComicPage';
 
 //User Pages
 import UsersReviewPage from './pages/UsersReviewPage';
@@ -23,8 +29,6 @@ import LoginPage from './pages/LoginPage';
 import HomePageRender from './pages/HomePage';
 import BuyPage from './pages/BuyPage';
 
-
-//import BuyPage from './pages/BuyPage';
 
 //Router
 export default function App() {
@@ -39,10 +43,18 @@ export default function App() {
         <Route path="/user/login" element={<LoginPage />}/>
         <Route path="/user/account" element={<ViewUserHomePage />}/>
         <Route path="/user/reviews/:userID" element={<UsersReviewPage />}/>
+        {/* <Route path="/user/michel/login" element={<UsersReviewPage />}/> */}
 
         {/* Creation Pages */}
         <Route path="/create/signup" element={<CreateAccountPage />}/>
         <Route path="/create/listing" element={<CreateListingPage /> }/>
+        <Route path="/create/comic" element={<CreateComicPage /> }/>
+        <Route path="/create/review" element={<CreateReviewPage /> }/>
+        <Route path='/create/publisher' element={<CreatePublisherPage />}/>
+
+
+        {/* Deletion Pages */}
+        <Route path='/delete/comic' element={<DeleteComicPage />}/>
 
         {/* Viewings */}
         <Route path="/view/buy" element={<BuyPage />}>

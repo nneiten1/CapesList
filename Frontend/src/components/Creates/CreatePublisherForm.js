@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Cookies } from "react-cookie";
 import axios from 'axios';
-import ComicTitle from '../ComicTitle';
 
 const LoginStack = styled.div`
     display: flex;
@@ -49,31 +48,6 @@ const LoginInput = styled.input`
   }
 `;
 
-const LoginHidden = styled.input`
-  display: none;
-
-`;
-
-
-
-const LoginSelect = styled.select`
-  padding: 10px;
-  margin: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-  justify-content: center;
-  position: relative;
-  right:0;
-
-  /* Add any additional styles you want here */
-
-
-  &:focus {
-    border-color: #007bff; /* Change border color when input is focused */
-  }
-`;
 
 const SubmitLogin = styled.button`
   background-color: #0a6bff;
@@ -115,7 +89,7 @@ const SubmitLogin = styled.button`
 
 
 
-function CreateListingForm({listingData}) {
+function CreatePublisherForm({publisherData}) {
   //Check for login cookie, if not, then redirect to the homepage
     //Grab cookies from browser
     let cookies = new Cookies();
@@ -123,55 +97,21 @@ function CreateListingForm({listingData}) {
     //Now get the ID cookie for USER ID
     let capesListCookie = cookies.get('CapesListID');
 
-
-    const [post, updatePost] =  useState(["Hello"]);
-    useEffect(() => {
-      axios.get(`http://localhost:80/Comics/${capesListCookie}`)
-        .then(({ data }) => {
-              updatePost(data); 
-              console.log(data);
-        })
-    },[])
-    console.log("This is the post after update post: ", post);
   
 
     return (
-        <form action="http://localhost:80/Create/Listing" method="POST">
+        <form action="http://localhost:80/Create/Publisher" method="POST">
         <LoginStack>
         <LoginDiv>
-        <LoginHeader>ADD LISTING</LoginHeader>
+        <LoginHeader>ADD PUBLISHER</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginSelect placeholder="Comic" name='listing[COMIC_ID]'required>
-              <option value="" disabled selected>Comic Name</option>
-              
-              {post.map((comic) => (
-              <ComicTitle key={comic.id} comic={comic} />
-                ))}
-            </LoginSelect>
+            <LoginInput placeholder="First/Company Name" type="text" value={publisherData.PUBLISHER_FIRST_NAME}  name='publisher[PUBLISHER_FIRST_NAME]'required></LoginInput>
             </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="Price" type="text" value={listingData.price}  name='listing[PRICE]'required></LoginInput>
+            <LoginInput placeholder="Last Name" type="text" value={publisherData.PUBLISHER_LAST_NAME} name='publisher[PUBLISHER_LAST_NAME]'></LoginInput>
             </LoginDiv>
-            <LoginDiv>
-            <LoginSelect defaultValue="Sale type" value={listingData.sale_type} name='listing[POSTING_TYPE]' required>
-                <option value="" disabled selected>Sale Type</option>
-                <option value="buy">Buy</option>
-                <option value="trade">Trade</option>
-            </LoginSelect>
-            </LoginDiv>
-            <LoginDiv>
-            <LoginInput placeholder="Listing Date" type="text" value={listingData.date} name='listing[LISTING_DATE]'required></LoginInput>
-            </LoginDiv>
-            <LoginDiv>
-            <LoginHidden placeholder="Seller_ID" type="text" value={listingData.seller_id} defaultValue={capesListCookie} name='listing[SELLER_USER_ID]' ></LoginHidden>
-            </LoginDiv>
-            <LoginDiv>
-            <LoginHidden placeholder="Buyer_ID" type="text" value={listingData.buyer_ID} defaultValue={0} name='listing[BUYER_USER_ID]'></LoginHidden>
-            </LoginDiv>
-            <LoginDiv>
-            <LoginHidden placeholder="Listing_status" type="text" defaultValue={"Available"} value={listingData.status} name='listing[STATUS]' required></LoginHidden>
-            </LoginDiv>
+            
 
 
 
@@ -185,4 +125,4 @@ function CreateListingForm({listingData}) {
     );
 }
 
-export default CreateListingForm;
+export default CreatePublisherForm;

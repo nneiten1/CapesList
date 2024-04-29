@@ -6,11 +6,23 @@
 
     
     class Publisher extends Model {
-        //public $table = "User";
+        protected $table;
         protected $db;
 
-        public function getUserID(string $email) {
+        public function __construct() {
+            //Connects to the database
+            $this -> db = \Config\Database::connect();
 
+
+           $this -> table = 'Publisher';
+        }
+
+
+        public function createPublisher($data) {
+            //Data has already been sanatized
+
+            $builder = $this -> db -> table($this->table);
+            $builder->insert($data);
         }
 
         public function getPassword(int $userID) {
