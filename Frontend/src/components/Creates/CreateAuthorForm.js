@@ -87,36 +87,37 @@ const SubmitLogin = styled.button`
 }
 `;
 
+let authorData;
 
 
-function CreatePublisherForm({publisherData}) {
-  //Check for login cookie, if not, then redirect to the homepage
-    //Grab cookies from browser
-    let cookies = new Cookies();
+function CreateAuthorForm() {
+  // //Check for login cookie, if not, then redirect to the homepage
+  //   //Grab cookies from browser
+  //   let cookies = new Cookies();
 
-    //Now get the ID cookie for USER ID
-    let capesListCookie = cookies.get('CapesListID');
+  //   //Now get the ID cookie for USER ID
+  //   let capesListCookie = cookies.get('CapesListID');
 
   
 
     return (
-        <form action="http://localhost:80/Create/Publisher" method="POST">
+        <form action="http://localhost:80/Create/Author" method="POST">
         <LoginStack>
         <LoginDiv>
-        <LoginHeader>ADD PUBLISHER</LoginHeader>
+        <LoginHeader>ADD AUTHOR</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="First/Company Name" type="text" value={publisherData.PUBLISHER_FIRST_NAME}  name='publisher[PUBLISHER_FIRST_NAME]'required></LoginInput>
+            <LoginInput placeholder="First Name" type="text" value={authorData.AUTHOR_FIRST_NAME}  name='author[AUTHOR_FIRST_NAME]'required></LoginInput>
             </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="Last Name" type="text" value={publisherData.PUBLISHER_LAST_NAME} name='publisher[PUBLISHER_LAST_NAME]'></LoginInput>
+            <LoginInput placeholder="Last Name" type="text" value={authorData.AUTHOR_LAST_NAME} name='author[AUTHOR_LAST_NAME]'></LoginInput>
             </LoginDiv>
             
 
 
 
             <LoginDiv>
-            <SubmitLogin type="submit">Add publisher</SubmitLogin>
+            <SubmitLogin type="submit">Add Author</SubmitLogin>
             </LoginDiv>
 
 
@@ -125,4 +126,4 @@ function CreatePublisherForm({publisherData}) {
     );
 }
 
-export default CreatePublisherForm;
+export default CreateAuthorForm;

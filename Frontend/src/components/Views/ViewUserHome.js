@@ -84,7 +84,7 @@ function ViewUserHome() {
 
     //When user clicks add Listing
     const addAuthorClick = () => {
-        console.log("Adding Author");
+        navigate("/create/author");
     }
 
 

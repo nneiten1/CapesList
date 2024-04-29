@@ -28,6 +28,7 @@ import ViewUserHomePage from './pages/ViewUserHomePage';
 import LoginPage from './pages/LoginPage';
 import HomePageRender from './pages/HomePage';
 import BuyPage from './pages/BuyPage';
+import CreateAuthorForm from './components/Creates/CreateAuthorForm';
 import SellPage from './pages/Sell';
 
 
@@ -54,6 +55,8 @@ export default function App() {
         <Route path="/create/comic" element={<CreateComicPage /> }/>
         <Route path="/create/review" element={<CreateReviewPage /> }/>
         <Route path='/create/publisher' element={<CreatePublisherPage />}/>
+        <Route path='/create/author' element={<CreateAuthorForm />}/>
+
 
         {/* Deletion Pages */}
         <Route path='/delete/comic' element={<DeleteComicPage />}/>
