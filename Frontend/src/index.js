@@ -28,6 +28,7 @@ import ViewUserHomePage from './pages/ViewUserHomePage';
 import LoginPage from './pages/LoginPage';
 import HomePageRender from './pages/HomePage';
 import BuyPage from './pages/BuyPage';
+import SellPage from './pages/Sell';
 
 
 //Router
@@ -38,7 +39,9 @@ export default function App() {
         {/* Index */}
         <Route index path='/' element={<HomePageRender />}/>
 
-
+        {/* Sell */}
+        <Route path='/sell' element={<SellPage/>}/>
+        
         {/* User pages */}
         <Route path="/user/login" element={<LoginPage />}/>
         <Route path="/user/account" element={<ViewUserHomePage />}/>
@@ -51,7 +54,6 @@ export default function App() {
         <Route path="/create/comic" element={<CreateComicPage /> }/>
         <Route path="/create/review" element={<CreateReviewPage /> }/>
         <Route path='/create/publisher' element={<CreatePublisherPage />}/>
-
 
         {/* Deletion Pages */}
         <Route path='/delete/comic' element={<DeleteComicPage />}/>

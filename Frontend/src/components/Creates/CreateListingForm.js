@@ -118,15 +118,12 @@ const SubmitLogin = styled.button`
 function CreateListingForm({listingData}) {
   //Check for login cookie, if not, then redirect to the homepage
     //Grab cookies from browser
-    let cookies = new Cookies();
 
-    //Now get the ID cookie for USER ID
-    let capesListCookie = cookies.get('CapesListID');
 
 
     const [post, updatePost] =  useState(["Hello"]);
     useEffect(() => {
-      axios.get(`http://localhost:80/Comics/${capesListCookie}`)
+      axios.get(`http://localhost:80/Comics/${})
         .then(({ data }) => {
               updatePost(data); 
               console.log(data);

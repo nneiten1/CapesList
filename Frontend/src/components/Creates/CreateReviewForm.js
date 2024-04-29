@@ -4,6 +4,7 @@ import { Cookies } from "react-cookie";
 import axios from 'axios';
 import PublisherName from '../PublisherName';
 import AuthorName from '../AuthorName';
+import UserName from '../Username'
 
 const ComicStack = styled.div`
     display: flex;
