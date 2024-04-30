@@ -111,6 +111,28 @@ class Comics extends ResourceController {
     }
     
 
+    public function getComicsByTitle($title) {
+        //Clean the data
+        $cleanData = esc($title);
+
+        //Now make the model and get the comics
+        $model = new Comic();
+
+        $result = $model->getComicByTitle($cleanData);
+
+        return $this->respond($result);
+    }
+
+    public function getAllComicTitles() {
+        $model = new Comic();
+
+        $result = $model -> getAllComicTitles();
+
+        return $this->respond($result);
+    }
+
+
+
 }
 
 
