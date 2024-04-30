@@ -145,7 +145,8 @@ function CreateListingForm({listingData}) {
         <LoginHeader>ADD LISTING</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginInput type="text" placeholder="Comic" id='comicDataList' name='listing[COMIC_ID]'required onChange={(e) => {updateComicName(e.target.value)}} >
+            <LoginSelect type="text" placeholder="Comic" id='comicDataList' name='listing[COMIC_ID]'required onChange={(e) => {updateComicName(e.target.value)}} >
+
             <datalist id="comicDataList">
               <option value="" disabled selected>Comic Name</option>
               
@@ -153,7 +154,7 @@ function CreateListingForm({listingData}) {
               <ComicTitle key={comic.id} comic={comic} />
                 ))}
             </datalist>
-            </LoginInput>
+            </LoginSelect>
             </LoginDiv>
             <LoginDiv>
             <LoginInput placeholder="Price" type="text" value={listingData.price}  name='listing[PRICE]'required></LoginInput>
