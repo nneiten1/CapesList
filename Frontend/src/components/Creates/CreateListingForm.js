@@ -145,7 +145,7 @@ function CreateListingForm({listingData}) {
         <LoginHeader>ADD LISTING</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginSelect type="text" placeholder="Comic" list='comicDataList' name='listing[COMIC_ID]'required 
+            <LoginInput type="text" placeholder="Comic" list='comicDataList' name='listing[COMIC_ID]'required 
             //onChange={(e) => {updateComicName(e.target.value)}}
             />
             <datalist id="comicDataList">
