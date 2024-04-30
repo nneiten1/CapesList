@@ -129,7 +129,7 @@ function CreateListingForm({listingData}) {
     const [comicName, updateComicName] =  useState("");
     const [post, updatePost] =  useState(["Hello"]);
     useEffect(() => {
-      axios.get(`http://localhost:80/Comics/` + comicName )
+      axios.get(`http://localhost:80/Comics/${comicName}` )
         .then(({ data }) => {
               updatePost(data); 
               console.log(data);

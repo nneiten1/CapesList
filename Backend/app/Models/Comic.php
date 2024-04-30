@@ -139,10 +139,35 @@
         }
 
 
+
+        public function getComicByTitle($title) {
+            $builder = $this -> db -> table($this -> table);
+    
+            $builder -> select("COMIC_ID, TITLE");
+            $builder -> like('TITLE', $title);
+
+            $result = $builder -> get();
+
+
+            return $result->getResultArray();
+    
+        }
+
+        public function getAllComicTitles() {
+            $builder = $this -> db -> table($this -> table);
+
+
+            $builder -> select("COMIC_ID, TITLE");
+
+            $result = $builder -> get();
+
+
+            return $result->getResultArray();
+        }
     }
     
 
-
+    
 
 
 ?>
