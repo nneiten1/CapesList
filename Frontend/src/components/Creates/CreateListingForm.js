@@ -148,7 +148,7 @@ function CreateListingForm({listingData}) {
             <LoginSelect type="text" placeholder="Comic" list='comicDataList' name='listing[COMIC_ID]'required onChange={(e) => {updateComicName(e.target.value)}} >
 
             <datalist id="comicDataList">
-              <option value="" disabled selected>Comic Name</option>
+              <option value="placeHolder" disabled selected>Comic Name</option>
               
               {post.map((comic) => (
               <ComicTitle key={comic.id} comic={comic} />
