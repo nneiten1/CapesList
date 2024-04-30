@@ -145,13 +145,15 @@ function CreateListingForm({listingData}) {
         <LoginHeader>ADD LISTING</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginSelect type="text" placeholder="Comic" name='listing[COMIC_ID]'required onChange={(e) => {updateComicName(e.target.value)}} >
+            <LoginInput type="text" placeholder="Comic" id='comicDataList' name='listing[COMIC_ID]'required onChange={(e) => {updateComicName(e.target.value)}} >
+            <datalist id="comicDataList">
               <option value="" disabled selected>Comic Name</option>
               
               {post.map((comic) => (
               <ComicTitle key={comic.id} comic={comic} />
                 ))}
-            </LoginSelect>
+            </datalist>
+            </LoginInput>
             </LoginDiv>
             <LoginDiv>
             <LoginInput placeholder="Price" type="text" value={listingData.price}  name='listing[PRICE]'required></LoginInput>
