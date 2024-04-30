@@ -129,12 +129,12 @@ function CreateListingForm({listingData}) {
     const [comicName, updateComicName] =  useState("");
     const [post, updatePost] =  useState(["Hello"]);
     useEffect(() => {
-      axios.get(`http://localhost:80/Comics/${comicName}` )
+      axios.get(`http://localhost:80/Comics/all` )
         .then(({ data }) => {
               updatePost(data); 
               console.log(data);
         })
-    },[comicName])
+    },[])
     console.log("This is the post after update post: ", post);
   
 
@@ -145,7 +145,9 @@ function CreateListingForm({listingData}) {
         <LoginHeader>ADD LISTING</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginSelect type="text" placeholder="Comic" list='comicDataList' name='listing[COMIC_ID]'required onChange={(e) => {updateComicName(e.target.value)}}/>
+            <LoginSelect type="text" placeholder="Comic" list='comicDataList' name='listing[COMIC_ID]'required 
+            //onChange={(e) => {updateComicName(e.target.value)}}
+            />
             <datalist id="comicDataList">
               <option value="" disabled selected>Comic Name</option>
               
