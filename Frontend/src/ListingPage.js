@@ -21,7 +21,7 @@ function ListingPage() {
     <>
     <NavBar></NavBar>
         <Listing key={post.id}  listing={post} />
-    
+        <a href={`/user/reviews/${post.SELLER_USER_ID}`}>Reviews</a>
     </>
   )
     
