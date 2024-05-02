@@ -3,6 +3,7 @@ import axios from "axios";
 import Listing from "../components/ListingItem";
 import { BuyPageDiv } from "../components/BuyPageStyled";
 import NavBar from "../components/NavBar";
+import { Link } from "react-router-dom";
 
 
 
@@ -21,9 +22,9 @@ const BuyPage = () => {
             <NavBar></NavBar>     
             <BuyPageDiv>
               {post.map((listing) => (
-                <a href={`listing/${listing.id}`}>
+                <Link to={`listing/${listing.id}`}>
                 <Listing key={listing.id}  listing={listing} />
-                </a>
+                </Link>
              ))}
             </BuyPageDiv>
           
