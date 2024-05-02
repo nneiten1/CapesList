@@ -9,7 +9,7 @@ import NavBar from "../components/NavBar";
 const BuyPage = () => {
   const [post, updatePost] =  useState(["Hello"]);
   useEffect(() => {
-      axios.get("http://localhost:80/Comics/all")
+      axios.get("http://localhost:80/Listings/all")
         .then(({ data }) => {
               updatePost(data); 
               console.log(data);
@@ -20,8 +20,9 @@ const BuyPage = () => {
           <>
             <NavBar></NavBar>     
             <BuyPageDiv>
-              {post.map((listing) => (
-                <a href={`listing/${listing.id}`}>
+              {
+                post.map((listing) => (
+                <a href={`listing/${listing.LISTING_ID}`}>
                 <Listing key={listing.id}  listing={listing} />
                 </a>
              ))}
