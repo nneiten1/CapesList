@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Review from "../components/Reviewitem"
-
+import NavBar from "../components/NavBar";
   
 
 function Reviews() {
