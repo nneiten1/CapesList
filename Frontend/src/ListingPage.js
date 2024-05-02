@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import Listing from "./components/ListingItem";
   
 
-function Reviews() {
+function ListingPage() {
   const { ListingID } = useParams();
 
   console.log(ListingID);
@@ -28,4 +28,4 @@ function Reviews() {
 };
 
 
-export default Reviews;
+export default ListingPage;

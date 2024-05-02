@@ -22,7 +22,7 @@ import DeleteComicPage from './pages/DeleteComicPage';
 //User Pages
 import UsersReviewPage from './pages/UsersReviewPage';
 import ViewUserHomePage from './pages/ViewUserHomePage';
-
+import ListingPage from './ListingPage';
 
 
 import LoginPage from './pages/LoginPage';
