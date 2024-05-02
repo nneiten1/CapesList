@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import NavBar from "../components/NavBar";
+import NavBar from "./components/NavBar";
 import Listing from "./components/ListingItem";
   
 
