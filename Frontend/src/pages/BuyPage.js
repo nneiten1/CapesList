@@ -21,7 +21,9 @@ const BuyPage = () => {
             <NavBar></NavBar>     
             <BuyPageDiv>
               {post.map((listing) => (
+                <a href={`listing/${listing.id}`}>
                 <Listing key={listing.id}  listing={listing} />
+                </a>
              ))}
             </BuyPageDiv>
           

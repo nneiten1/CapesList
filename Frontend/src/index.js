@@ -42,6 +42,9 @@ export default function App() {
 
         {/* Sell */}
         <Route path='/sell' element={<SellPage/>}/>
+
+        {/* {Listing} */}
+        <Route path='/listing:listingID' element={<ListingPage />}/>
         
         {/* User pages */}
         <Route path="/user/login" element={<LoginPage />}/>
