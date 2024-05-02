@@ -6,8 +6,15 @@
 
     
     class Author extends Model {
-        //public $table = "User";
+        protected $table;
         protected $db;
+
+        public function __construct() {
+            
+            $this -> db = \Config\Database::connect();
+
+            $this->table = 'Author';
+        }
 
         public function getUserID(string $email) {
 
@@ -31,6 +38,19 @@
 
         public function updateEmail(string $newEmail) {
 
+        }
+
+
+        public function all() {
+            $builder = $this -> db -> table($this -> table);
+
+            //Query
+            $builder -> select('AUTHOR_FIRST_NAME, AUTHOR_LAST_NAME, AUTHOR_ID');
+
+            $result = $builder -> get();
+
+
+            return $result->getResultArray();
         }
     }
     

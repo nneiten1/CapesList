@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Models\Publisher;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
-use CodeIgniter\Commands\Utilities\Publish;
 
 class Publishers extends ResourceController {
 
@@ -52,6 +51,17 @@ class Publishers extends ResourceController {
 
     public function updateUser() {
 
+    }
+
+
+    public function getAll() {
+        $model = new Publisher();
+
+
+        $results = $model -> all();
+
+
+        return $this->respond($results);
     }
 
     

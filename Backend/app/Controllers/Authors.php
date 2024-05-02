@@ -57,6 +57,16 @@ class Authors extends ResourceController {
 
     }
 
+
+    public function getAll() {
+        $model = new Author();
+
+        $results = $model->all();
+
+
+        return $this->respond($results);
+    }
+
     
 
 }

@@ -14,12 +14,19 @@ const handleSubmit = (e) => {
     e.preventDefault(); //Keeps from page reload
 
     const data = {
-        
+        author_id: comicFormData.author_id,
+        publisher_id: comicFormData.publisher_id,
+        price: comicFormData.price,
+        date_added: comicFormData.date_added,
+        release_date: comicFormData.release_date,
+        title: comicFormData.title,
+        issue_number: comicFormData.issue_number,
+        front_cover_url: comicFormData.front_cover_photo_url
     };
 
     axios.post("http://localhost:80/Create/Comic", data).then((response) => {
             //Now go to the next page
-            //window.location.replace("http://localhost:3000/");
+            window.location.replace("http://localhost:3000/");
     });
 }
 
@@ -29,23 +36,25 @@ const handleSubmit = (e) => {
 
 const CreateComicPage = () => {
     comicFormData = useState({
+        author_id: "",
+        publisher_id: "",
         price: "",
-        postingType: "",
-        listingDate: "",
-        seller_id: "",
-        buyer_id: "",
-        listing_status: ""
+        date_added: "",
+        release_date: "",
+        title: "",
+        issue_number: "",
+        front_cover_url: ""
     });
 
-    // //Check for login cookie, if not, then redirect to the homepage
-    // //Grab cookies from browser
-    // cookies = new Cookies();
+    //Check for login cookie, if not, then redirect to the homepage
+    //Grab cookies from browser
+    cookies = new Cookies();
 
-    // //Now get the ID cookie for USER ID
-    // let capesListCookie = cookies.get('CapesListID');
+    //Now get the ID cookie for USER ID
+    let capesListCookie = cookies.get('CapesListID');
 
     //Now check if you are logged in, if not, redirect to homepage
-    // if (typeof capesListCookie !== 'undefined') {
+    if (typeof capesListCookie !== 'undefined') {
         return (
             <>
                 <NavBar></NavBar>
@@ -57,13 +66,12 @@ const CreateComicPage = () => {
             </>
             
         );
-    // } else {
-    //     return (<Navigate to="/"/>);
+     } else {
+         return (<Navigate to="/"/>);
     
         
-    // }
+    }
 
-    
 }
 
 

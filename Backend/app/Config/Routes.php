@@ -20,9 +20,11 @@ $routes->get('/Comics/all', 'Comics::retrieveAllComics');
 $routes->get('/Reviews/(:num)', 'Reviews::getUserReviews/$1');
 $routes->get('/Comics/(:num)', 'Comics::getUserComics/$1');
 $routes->get('/Listings/all', 'Listings::allListings');
-$routes->get('/Listings/(:num)', 'Listings::getUsersListings/$1');
+$routes->get('/Listings/(:num)', 'Listings::getListing/$1');
 $routes->get('/Comics/(:alphanum)', 'Comics::getComicsByTitle/$1');
 $routes->get('/Comics', 'Comics::getAllComicTitles');
+$routes->get('/Authors/all', 'Authors::getAll');
+$routes->get('/Publishers/all', 'Publishers::getAll');
 // $routes->get('/')
 
 

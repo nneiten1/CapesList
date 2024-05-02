@@ -95,7 +95,7 @@ function ViewUserHome() {
 
     //When user clicks add Listing
     const addComicClick = () => {
-        console.log("Adding comic");
+        navigate("/create/comic");
     }
 
     const deleteAccountClick = () => {

@@ -19,13 +19,25 @@
         public function getAllListings() {
             $builder = $this -> db -> table($this -> table);
 
-            $builder->select('LISTING_ID, FIRST_NAME AS SELLER, PRICE, POSTING_TYPE, `STATUS`, LISTING_DATE');
-            $builder->from('`User`');
-            $builder->where('SELLER_USER_ID = USER_ID');
+            $builder->select('LISTING_ID, FIRST_NAME AS SELLER, SELLER_USER_ID, Listing.PRICE, POSTING_TYPE, `STATUS`, LISTING_DATE,
+                 BUYER_USER_ID AS BUYER, Comic.COMIC_ID, PUBLISHER_FIRST_NAME AS PUBLISHER, AUTHOR_FIRST_NAME AS AUTHOR, Comic.PRICE, DATE_ADDED, RELEASE_DATE,
+                 TITLE, ISSUE_NUMBER, FRONT_COVER_PHOTO_URL AS FRONT_COVER');
+            $builder->from('`User`, Comic, Publisher, Author');
+            $builder->where('SELLER_USER_ID = USER_ID AND Author.AUTHOR_ID = Comic.AUTHOR_ID AND Publisher.PUBLISHER_ID = Comic.PUBLISHER_ID AND Listing.COMIC_ID = Comic.COMIC_ID');
 
             $results = $builder -> get();
 
-            dd($results);
+            //Make the buyer user id call
+            // $builder = $this -> db -> table('User');
+            // $builder -> select('FIRST_NAME AS BUYER');
+            // $builder -> where('USER_ID', $results->BUYER_USER_ID);
+            // $buyerName = $builder->get()->getResultArray()[0]['BUYER'];
+
+            //Replace the data
+            // $result[0]['BUYER'] = $buyerName;
+
+            //This should have spliced the data together so the buyers user id is now their first name
+            
 
 
             return $results->getResultArray();
@@ -48,12 +60,17 @@
             $builder -> delete(['COMIC_ID' => $comicID]);
         }
 
-        public function getUsersListings($id) {
+        public function getListing($id) {
+            
             $builder = $this -> db -> table($this->table);
 
-            //Now get based on the users id
-            $builder->select('*');
-            $builder -> where('SELLER_USER_ID', $id);
+            $builder->select('LISTING_ID, FIRST_NAME AS SELLER, SELLER_USER_ID, Listing.PRICE, POSTING_TYPE, `STATUS`, LISTING_DATE,
+                 BUYER_USER_ID AS BUYER, Comic.COMIC_ID, PUBLISHER_FIRST_NAME AS PUBLISHER, AUTHOR_FIRST_NAME AS AUTHOR, Comic.PRICE, DATE_ADDED, RELEASE_DATE,
+                 TITLE, ISSUE_NUMBER, FRONT_COVER_PHOTO_URL AS FRONT_COVER');
+            $builder->from('`User`, Comic, Publisher, Author');
+            $builder->where('SELLER_USER_ID = USER_ID AND Author.AUTHOR_ID = Comic.AUTHOR_ID AND 
+                Publisher.PUBLISHER_ID = Comic.PUBLISHER_ID AND Listing.COMIC_ID = Comic.COMIC_ID');
+            $builder->where('LISTING_ID', $id);
 
             $results = $builder -> get();
 

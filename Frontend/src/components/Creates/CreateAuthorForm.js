@@ -87,16 +87,15 @@ const SubmitLogin = styled.button`
 }
 `;
 
-let authorData;
 
 
-function CreateAuthorForm() {
-  // //Check for login cookie, if not, then redirect to the homepage
-  //   //Grab cookies from browser
-  //   let cookies = new Cookies();
+function CreateAuthorForm({authorData}) {
+  //Check for login cookie, if not, then redirect to the homepage
+    //Grab cookies from browser
+    let cookies = new Cookies();
 
-  //   //Now get the ID cookie for USER ID
-  //   let capesListCookie = cookies.get('CapesListID');
+    //Now get the ID cookie for USER ID
+    let capesListCookie = cookies.get('CapesListID');
 
   
 
@@ -104,10 +103,10 @@ function CreateAuthorForm() {
         <form action="http://localhost:80/Create/Author" method="POST">
         <LoginStack>
         <LoginDiv>
-        <LoginHeader>ADD AUTHOR</LoginHeader>
+        <LoginHeader>ADD PUBLISHER</LoginHeader>
         </LoginDiv>
             <LoginDiv>
-            <LoginInput placeholder="First Name" type="text" value={authorData.AUTHOR_FIRST_NAME}  name='author[AUTHOR_FIRST_NAME]'required></LoginInput>
+            <LoginInput placeholder="First/Company Name" type="text" value={authorData.AUTHOR_FIRST_NAME}  name='author[AUTHOR_FIRST_NAME]'required></LoginInput>
             </LoginDiv>
             <LoginDiv>
             <LoginInput placeholder="Last Name" type="text" value={authorData.AUTHOR_LAST_NAME} name='author[AUTHOR_LAST_NAME]'></LoginInput>
@@ -117,7 +116,7 @@ function CreateAuthorForm() {
 
 
             <LoginDiv>
-            <SubmitLogin type="submit">Add Author</SubmitLogin>
+            <SubmitLogin type="submit">Add author</SubmitLogin>
             </LoginDiv>
 
 

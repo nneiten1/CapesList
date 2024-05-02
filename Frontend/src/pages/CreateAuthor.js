@@ -31,8 +31,10 @@ const handleSubmit = (e) => {
 
 
 
-const CreateAuthorPage = () => {
+const CreatePublisherPage = () => {
     authorFormData = useState({
+        AUTHOR_FIRST_NAME: "",
+        AUTHOR_LAST_NAME: ""
        
     });
 
@@ -48,7 +50,7 @@ const CreateAuthorPage = () => {
         return (
             <>
                 <NavBar></NavBar>
-                <CreateAuthorForm/>
+                <CreateAuthorForm authorData={authorFormData}/>
     
     
                 <Outlet />
@@ -66,4 +68,4 @@ const CreateAuthorPage = () => {
 }
 
 
-export default CreateAuthorPage;
+export default CreatePublisherPage;

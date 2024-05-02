@@ -25,6 +25,18 @@
             $builder->insert($data);
         }
 
+
+        public function all() {
+
+            $builder = $this -> db -> table($this -> table);
+            $builder -> select('PUBLISHER_FIRST_NAME, PUBLISHER_LAST_NAME, PUBLISHER_ID');
+
+            $result = $builder -> get();
+
+
+            return $result->getResultArray();
+        }
+
         public function getPassword(int $userID) {
 
         }

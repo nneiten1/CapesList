@@ -68,15 +68,15 @@ class Listings extends ResourceController {
         return $this -> respond($result);
     }
 
-    public function getUsersListings($id) {
+    public function getListing($id) {
         
         //Cleanse the ID
-        $cleanedUserID = esc($id);
+        $cleanedListingID = esc($id);
 
 
         //Now query the backend for the listings
-        $model = new Listings();
-        $result = $model-> getUsersListings($cleanedUserID);
+        $model = new Listing();
+        $result = $model-> getListing($cleanedListingID);
 
 
         return $this -> respond($result);
