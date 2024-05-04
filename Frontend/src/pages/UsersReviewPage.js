@@ -12,9 +12,10 @@ function Reviews() {
   const [post, updatePost] =  useState(["Hello"]);
   axios.get(`http://localhost:80/Reviews/${userID}` )
   .then ((response) => {
-    updatePost(response);
+    updatePost(response.data);
   });
 
+  console.log(post);
 
   return (
     
