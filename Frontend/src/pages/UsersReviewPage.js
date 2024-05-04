@@ -20,8 +20,8 @@ function Reviews() {
     
     <>
     <NavBar></NavBar>
-    {post.map((listing) => (
-                <Review key={listing.id}  listing={listing} />
+    {post.map((review) => (
+                <Review key={review.id}  review={review} />
              ))}
     
     </>
