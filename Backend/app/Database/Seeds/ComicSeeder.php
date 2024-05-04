@@ -28,6 +28,16 @@ class ComicSeeder extends Seeder {
             'ISSUE_NUMBER' => 1,
             'OWNER_ID' => 3,
             'FRONT_COVER_PHOTO_URL' => NULL],
+            ['COMIC_ID' => 3,
+            'PUBLISHER_ID' => 2,    //2 = Marvel Comics
+            'AUTHOR_ID' => 6,        //6 = Stan Lee
+            'PRICE' => '$0.12',
+            'DATE_ADDED' => '4/11/2024',
+            'RELEASE_DATE' => '01/1963',
+            'TITLE' => 'TEMPTEST',
+            'ISSUE_NUMBER' => 1,
+            'OWNER_ID' => 1,
+            'FRONT_COVER_PHOTO_URL' => NULL],
         ];
 
         //Populates the db with each Comic with all needed for entry

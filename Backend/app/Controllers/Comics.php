@@ -30,16 +30,18 @@ class Comics extends ResourceController {
             $this->fail("No comic details submitted");
         }
 
-        //Cleanses the data
-        $cleansedData = [
+        return dd($_POST);
 
-        ];
+        // //Cleanses the data
+        // $cleansedData = [
 
-        //Makes a model
-        $model = new Comic();
+        // ];
 
-        //Creates the comic with cleansed data
-        $model -> createComic($cleansedData);
+        // //Makes a model
+        // $model = new Comic();
+
+        // //Creates the comic with cleansed data
+        // $model -> createComic($cleansedData);
         
     }
 

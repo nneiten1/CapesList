@@ -152,26 +152,26 @@ function CreateComicForm({comicData}) {
         <ComicHeader>ADD COMIC</ComicHeader>
         </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Price" type="text" value={comicData.price} required></ComicInput>
+              <ComicInput placeholder="Title" type="text" value={comicData.title} name="comic[TITLE]" required></ComicInput>
             </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Date Added" type="text" value={comicData.date_added} required></ComicInput>
+              <ComicInput placeholder="Price" type="text" value={comicData.price} name="comic[PRICE]" required></ComicInput>
             </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Release Date" type="text" value={comicData.release_date} required></ComicInput>
+              <ComicInput placeholder="Date Added" type="text" value={comicData.date_added} name="comic[DATE_ADDED]" required></ComicInput>
             </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Title" type="text" value={comicData.title} required></ComicInput>
+              <ComicInput placeholder="Release Date" type="text" value={comicData.release_date} name="comic[RELEASE_DATE]" required></ComicInput>
             </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Issue Number" type="text" value={comicData.issue_number} required></ComicInput>
+              <ComicInput placeholder="Issue Number" type="text" value={comicData.issue_number} name="comic[ISSUE_NUMBER]" required></ComicInput>
             </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Cover URL" type="text" value={comicData.front_cover_photo_url} required></ComicInput>
+              <ComicInput placeholder="Cover URL" type="text" value={comicData.front_cover_photo_url} name="comic[FRONT_COVER_PHOTO_URL]" required></ComicInput>
             </ComicDiv>
             
             <ComicDiv>
-                <ComicSelect defaultValue="Author" required>
+                <ComicSelect defaultValue="Author" name="comic[AUTHOR]" required>
                   <option value="" disabled selected>Author</option>
 
                   {authors.map((author) => (
@@ -180,7 +180,7 @@ function CreateComicForm({comicData}) {
                 </ComicSelect>
             </ComicDiv>
             <ComicDiv>
-                <ComicSelect defaultValue="Publisher" required>
+                <ComicSelect defaultValue="Publisher" name="comic[PUBLISHER]" required>
                   <option value="" disabled selected>Publisher</option>
 
                   {publishers.map((publisher) => (
@@ -189,9 +189,6 @@ function CreateComicForm({comicData}) {
                 </ComicSelect>
             </ComicDiv>
             
-            <ComicDiv>
-              <ComicHidden placeholder="User" type="text" value={0} defaultValue={0}></ComicHidden>
-            </ComicDiv>
 
 
 

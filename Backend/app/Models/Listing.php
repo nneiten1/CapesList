@@ -78,6 +78,19 @@
         }
 
        
+
+        public function getListingComicByUserID($userID) {
+            $builder = $this -> db -> table($this -> table);
+
+            $builder -> select('TITLE, LISTING_ID');
+            $builder -> from('Comic');
+            $builder -> where('Listing.COMIC_ID = Comic.COMIC_ID');
+
+            $result = $builder -> get();
+
+
+            return $result -> getResultArray();
+        }
     }
     
 

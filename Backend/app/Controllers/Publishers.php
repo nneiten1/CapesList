@@ -21,10 +21,10 @@ class Publishers extends ResourceController {
         }
 
         //Checking is ast name is blank
-        if ($_POST['publisher']['PUBLISHER_LAST_NAME'] == '') {
-            //Blank so make it NULL value
-            $_POST['publisher']['PUBLISHER_LAST_NAME'] = NULL;
-        }
+        // if ($_POST['publisher']['PUBLISHER_LAST_NAME'] == '') {
+        //     //Blank so make it NULL value
+        //     $_POST['publisher']['PUBLISHER_LAST_NAME'] = NULL;
+        // }
 
         //Now we want to parse and sanatize the data
         $cleanData = [

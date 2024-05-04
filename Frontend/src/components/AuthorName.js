@@ -1,7 +1,7 @@
 function AuthorName ({ author }) {
     return (
       <option value={author.AUTHOR_ID}>
-        {author.FNAME}</option>
+        {author.AUTHOR_FIRST_NAME + ' ' + author.AUTHOR_LAST_NAME}</option>
     );
 };
 

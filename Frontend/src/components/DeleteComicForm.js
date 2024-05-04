@@ -109,7 +109,7 @@ function ComicDeleteForm({comicData}) {
       //Grabs all of the COMICS by USERID
       const [comics, updateComics] =  useState(["Hello"]);
       useEffect(() => {
-        axios.get(`http://localhost:80/Comics/${capesListCookie}`)
+        axios.get(`http://localhost:80/Listings/UserID/${capesListCookie}`)
           .then(({ data }) => {
                 updateComics(data); 
                 console.log(data);
@@ -119,13 +119,10 @@ function ComicDeleteForm({comicData}) {
       
     
         return (
-            <form action="http://localhost:80/Delete/Comic" method="POST">
+            <form action="http://localhost:80/Delete/Listing" method="POST">
             <ComicDeleteStack>
                 <ComicDeleteDiv>
-                    <ComicDelteHeader>DELETE COMIC</ComicDelteHeader>
-                </ComicDeleteDiv>
-                <ComicDeleteDiv>
-                    <ComicDelteHeader>*NOTE: This will delete any active listings for the comic too!</ComicDelteHeader>
+                    <ComicDelteHeader>DELETE LISTING</ComicDelteHeader>
                 </ComicDeleteDiv>
                 <ComicDeleteDiv>
                     <ComicDeleteSelect defaultValue="Comic Title" name="comicDelete[id]"required>

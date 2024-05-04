@@ -1,7 +1,12 @@
 function PublisherName ({ publisher }) {
     return (
       <option value={publisher.PUBISHER_ID}>
-        {publisher.FNAME}</option>
+        {
+        
+        publisher.PUBLISHER_FIRST_NAME + ' ' + publisher.PUBLISHER_LAST_NAME
+        
+        
+        }</option>
     );
 };
 

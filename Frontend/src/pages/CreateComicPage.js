@@ -24,9 +24,10 @@ const handleSubmit = (e) => {
         front_cover_url: comicFormData.front_cover_photo_url
     };
 
+    console.log(data);
+
     axios.post("http://localhost:80/Create/Comic", data).then((response) => {
-            //Now go to the next page
-            window.location.replace("http://localhost:3000/");
+
     });
 }
 
@@ -45,6 +46,8 @@ const CreateComicPage = () => {
         issue_number: "",
         front_cover_url: ""
     });
+
+    console.log(comicFormData);
 
     //Check for login cookie, if not, then redirect to the homepage
     //Grab cookies from browser

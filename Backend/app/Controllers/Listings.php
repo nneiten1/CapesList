@@ -82,6 +82,29 @@ class Listings extends ResourceController {
         return $this -> respond($result);
     }
 
+
+    public function getListingComicByUserID($id) {
+        
+        //Cleanse the ID
+        $cleanedListingID = esc($id);
+
+
+        //Now query the backend for the listings
+        $model = new Listing();
+        $result = $model-> getListingComicByUserID($cleanedListingID);
+
+
+        return $this -> respond($result);
+    }
+
+    public function deleteListingByID($listingID) {
+        //Need to take the id
+        $cleanLisitngID = esc($listingID);
+
+        $model = new Listing();
+        $model->deleteByID($cleanComicID);
+    }
+
     
 
 }

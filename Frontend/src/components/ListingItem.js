@@ -6,6 +6,7 @@ function Listing ({ listing }) {
             <p>{listing.RELEASE_DATE}</p>
             <p>{listing.PRICE}</p>
             <p>{listing.ISSUE_NUMBER}</p>
+            <a href="">{listing.SELLER_FIRST_NAME}</a>
             <img style={{color: 'White'}} alt={altText} src={listing.img}></img>
           </div>
         );
