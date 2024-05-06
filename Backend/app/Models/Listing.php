@@ -91,6 +91,15 @@
 
             return $result -> getResultArray();
         }
+
+
+        public function deleteListingByID($listingID) {
+            $builder = $this -> db -> table($this -> table);
+
+            $builder -> delete(['LISTING_ID' => $listingID]);
+
+            return;
+        }
     }
     
 

@@ -54,9 +54,6 @@ class Listings extends ResourceController {
         $model->deleteByComicID($cleanComicID);
     }
 
-    public function updateUser() {
-
-    }
 
     public function allListings() {
         $model = new Listing();
@@ -97,12 +94,25 @@ class Listings extends ResourceController {
         return $this -> respond($result);
     }
 
-    public function deleteListingByID($listingID) {
-        //Need to take the id
-        $cleanLisitngID = esc($listingID);
+    public function deleteListingByID() {
+        //Check the POST array
+        if(!isset($_POST['comicDelete'])) {
+            return $this->fail("No listing data submitted");
+        }
 
-        $model = new Listing();
-        $model->deleteByID($cleanComicID);
+        //Now cleanse the data
+        $cleanListingID = esc($_POST['comicDelete']['id']);
+
+        //Make a model
+        $model = new Listing;
+        $model -> deleteListingByID($cleanListingID);
+
+        //Now redirect
+        header('Location: http://localhost:3000/Delete/comic');
+        exit;
+
+
+        return;
     }
 
     

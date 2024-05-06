@@ -37,7 +37,7 @@ $routes->post('/Create/Listing', 'Listings::createListing');
 $routes->post("/User/Delete", 'User::deleteUser');
 $routes->post("/Create/Comic", 'Comics::createComic');
 $routes->post("/Create/Publisher", "Publishers::createPublisher");
-$routes->post("/Delete/Listing", 'Comics::deleteComic');
+$routes->post("/Delete/Listing", 'Listings::deleteListingByID');
 $routes->post("/Create/Author", 'Authors::createAuthor');
 
 //DELETE
