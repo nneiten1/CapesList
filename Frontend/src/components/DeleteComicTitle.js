@@ -1,12 +1,12 @@
-function ComicTitle ({ comic }) {
+function DeleteComicTitle ({ comic }) {
 
     return (
-      <option value={comic.COMIC_ID}>
+      <option value={comic.LISTING_ID}>
         {comic.TITLE}</option>
     );
 };
 
-export default ComicTitle;
+export default DeleteComicTitle;
 
 //COMIC_ID int(11) PK 
 // PUBLISHER_ID int(11) 

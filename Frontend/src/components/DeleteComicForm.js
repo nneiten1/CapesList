@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Cookies } from "react-cookie";
 import axios from 'axios';
-import ComicTitle from './ComicTitle';
+import DeleteComicTitle from './DeleteComicTitle';
 
 const ComicDeleteStack = styled.div`
     display: flex;
@@ -129,7 +129,7 @@ function ComicDeleteForm({comicData}) {
                         <option value="" disabled selected>Comic Title</option>
     
                         {comics.map((comic) => (
-                            <ComicTitle key={comic.id} comic={comic} />
+                            <DeleteComicTitle key={comic.id} comic={comic} />
                         ))}
                     </ComicDeleteSelect>
                 </ComicDeleteDiv>
