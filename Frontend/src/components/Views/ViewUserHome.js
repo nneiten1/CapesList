@@ -98,34 +98,14 @@ function ViewUserHome() {
         navigate("/create/comic");
     }
 
-    const deleteAccountClick = () => {
-        console.log("Deleting Account :(");
-
-        //Grab the cookie with user ID
-        let cookie = new Cookies();
-        let userID = cookie.get("CapesListID", {path: '/'});
-        //console.log(userID);
-
-        //Make an array for posting
-        let data = {
-            ID: userID
-        };
-
-        axios.post("http://localhost:80/User/Delete", data);
-    }
 
 
     const deleteComicClick = () => {
         navigate("/delete/comic");
     }
 
-    const updateAccountClick = () => {
-        navigate("/user/updateAccount")
-    }
-
     //When user clicks add Listing
     const userAccountLogout = () => {
-        console.log("Loging out!");
 
         //Removing the cookies with JS to make it easier
         removeCookie("CapesListID", {path: '/'});
@@ -139,11 +119,6 @@ function ViewUserHome() {
     return (
         <>
             <UserActionStack>
-                <UserActionDiv></UserActionDiv>
-                <UserActionDiv>
-                    <StyledButton onClick={updateAccountClick}>Update Account</StyledButton>
-                </UserActionDiv>
-                <UserActionDiv></UserActionDiv>
                 
                 <UserActionDiv></UserActionDiv>
                 <UserActionDiv>
@@ -181,19 +156,7 @@ function ViewUserHome() {
                     <StyledButton onClick={userAccountLogout}>Logout</StyledButton>
                 </UserActionDiv>
 
-                <form action="https://localhost:80/User/Delete" method="POST">
-                    <input style={{display: 'none'}}  defaultValue={getUserID()} name='delete[ID]'></input>
-
-                    <UserActionDiv>
-                        <StyledButton onClick={deleteAccountClick}>Delete Account</StyledButton>
-                    </UserActionDiv>
-                </form>
             </UserActionStack>
-            
-            
-            
-            
-            
         </>
     );
   }
