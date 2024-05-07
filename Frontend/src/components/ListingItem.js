@@ -16,6 +16,18 @@ function Listing ({ listing }) {
 
         var altText = "Image of the comic"
         return (
+
+          <div style={{ color: 'white', margin: '20px' }}>
+          <h2>{listing.TITLE}</h2>
+          <a href="#" onClick={handleSellerClick}>{listing.SELLER}</a>
+          <p>{listing.RELEASE_DATE}</p>
+          <p>{listing.PRICE}</p>
+          <p>{listing.ISSUE_NUMBER}</p>
+          <img style={{ maxWidth: '100%', height: 'auto' }} alt={altText} src={listing.img} />
+      </div>
+
+
+          /*
           <div>
             <h2 style={{color: 'White'}}>{listing.TITLE}</h2>
             <a onClick={handelSellerClick}>{listing.SELLER}</a>
@@ -24,6 +36,7 @@ function Listing ({ listing }) {
             <p>{listing.ISSUE_NUMBER}</p>
             <img style={{color: 'White'}} alt={altText} src={listing.img}></img>
           </div>
+          */
         );
 };
 
