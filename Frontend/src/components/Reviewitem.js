@@ -1,7 +1,11 @@
 import styled from "styled-components"
 
 const ReviewDiv = styled.div`
-background-color: #121212
+  background-color: 'White'
+  border-radius: 10px; /* Set the border radius for rounded corners */
+  border: 2px solid #ccc; /* Set border properties */
+  margin: 20px; /* Set margin to create space around the div */
+  padding: 20px; /* Optionally, add padding to create space between content and border */
 `
 
 
