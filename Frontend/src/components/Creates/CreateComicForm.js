@@ -130,7 +130,6 @@ function CreateComicForm({comicData}) {
     axios.get(`http://localhost:80/Authors/all`)
       .then(({ data }) => {
             updateAuthors(data); 
-            console.log(data);
       })
   },[])
 
@@ -140,7 +139,6 @@ function CreateComicForm({comicData}) {
     axios.get(`http://localhost:80/Publishers/all`)
       .then(({ data }) => {
             updatePublishers(data); 
-            console.log(data);
       })
   },[])
   

@@ -12,7 +12,7 @@ const ReviewDiv = styled.div`
 function Review ({review}) {
     return (
         <ReviewDiv>
-          <h2 style={{color: 'Blue'}}>{review.REVIEWIE_USER_ID}</h2>
+          <h2 style={{color: 'Blue'}}>{review.BUYER}</h2>
           <p>{review.STAR_RATING}</p>
           <p>{review.DATE}</p>
           <p>{review.DETAILS}</p>

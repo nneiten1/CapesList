@@ -171,11 +171,11 @@ class User extends ResourceController {
 
 
     public function getAllNames() {
-        $model = new Users;
+        $model = new Users();
 
         $results = $model -> getAllNames();
 
-        return $results;
+        return $this->respond($results);
     }
 
 }

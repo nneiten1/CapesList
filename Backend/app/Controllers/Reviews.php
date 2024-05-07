@@ -13,16 +13,13 @@ class Reviews extends ResourceController {
     private string $table = 'review';
     
 
-    public function createUser() {
+    public function createReview() {
+        //Check if form data was submitted
+        if (!isset($_POST['review'])) {
+            $this->fail('No review form data found');
+        }
 
-    }
-
-    public function deleteUser() {
-
-    }
-
-    public function updateUser() {
-
+        dd($_POST);
     }
 
 

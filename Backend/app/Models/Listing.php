@@ -25,22 +25,25 @@
             $builder->from('`User`, Comic, Publisher, Author');
             $builder->where('SELLER_USER_ID = USER_ID AND Author.AUTHOR_ID = Comic.AUTHOR_ID AND Publisher.PUBLISHER_ID = Comic.PUBLISHER_ID AND Listing.COMIC_ID = Comic.COMIC_ID');
 
-            $results = $builder -> get();
+            $results = $builder -> get()->getResultArray();
 
+            
+            //Conditional to check if there is a buyer for the listing
             //Make the buyer user id call
-            // $builder = $this -> db -> table('User');
-            // $builder -> select('FIRST_NAME AS BUYER');
-            // $builder -> where('USER_ID', $results->BUYER_USER_ID);
-            // $buyerName = $builder->get()->getResultArray()[0]['BUYER'];
+            $builder = $this -> db -> table('User');
+            $builder -> select('FIRST_NAME AS BUYER');
+            $builder -> where('USER_ID', $results[0]['BUYER']);
+            $buyerName = $builder->get()->getResultArray()[0]['BUYER']; //Grabs the buyers name
+
 
             //Replace the data
-            // $result[0]['BUYER'] = $buyerName;
+            $results[0]['BUYER'] = $buyerName;
 
             //This should have spliced the data together so the buyers user id is now their first name
             
 
 
-            return $results->getResultArray();
+            return $results;
         }
 
 

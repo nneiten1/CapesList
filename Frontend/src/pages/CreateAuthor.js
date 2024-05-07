@@ -31,8 +31,7 @@ const handleSubmit = (e) => {
 
 
 
-const CreatePublisherPage = () => {
-    authorData = null;
+const CreateAuthorPage = () => {
     authorFormData = useState({
        
     });

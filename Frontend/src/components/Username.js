@@ -1,8 +1,8 @@
 function Username ({ user }) {
+
     return (
-      <div>
-        <h2 style={{color: 'White'}}>{user}</h2>
-      </div>
+      
+        <option value={user.USER_ID}>{user.NAME}</option>
     );
 };
 

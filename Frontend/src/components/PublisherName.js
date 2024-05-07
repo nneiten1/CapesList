@@ -1,6 +1,6 @@
 function PublisherName ({ publisher }) {
     return (
-      <option value={publisher.PUBISHER_ID}>
+      <option value={publisher.PUBLISHER_ID}>
         {
         
         publisher.PUBLISHER_FIRST_NAME + ' ' + publisher.PUBLISHER_LAST_NAME

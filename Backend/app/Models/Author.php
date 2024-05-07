@@ -16,28 +16,12 @@
             $this->table = 'Author';
         }
 
-        public function getUserID(string $email) {
+        public function createAuthor($data) {
+            $builder = $this -> db -> table($this -> table);
 
-        }
+            $builder->insert($data);
 
-        public function getPassword(int $userID) {
-
-        }
-
-        public function getEmail(int $userID) {
-
-        }
-
-        public function createUser(string $email, string $password) {
-
-        }
-
-        public function updatePassword(string $oldPassword, string $newPassword) {
-
-        }
-
-        public function updateEmail(string $newEmail) {
-
+            return;
         }
 
 

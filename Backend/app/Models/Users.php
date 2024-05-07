@@ -17,7 +17,7 @@
             //Sets the table for the DB connection only to the comic table
            //$builder = $this -> db -> table('Comic');
 
-           $this -> table = 'User';
+           $this -> table = '`User`';
         }
 
         public function getUserID(string $email) {
@@ -105,21 +105,14 @@
 
             //Now grab both the first and last name of the users as one string
             //CONCAT(FIRST_NAME, " ",  LAST_NAME) AS NAME
-            $builder -> select('CONCAT(FIRST_NAME, " ",  LAST_NAME) AS NAME');
+            $builder -> select('CONCAT(FIRST_NAME, " ",  LAST_NAME) AS NAME, USER_ID');
             $builder -> where ('(FIRST_NAME IS NOT NULL) AND (LAST_NAME IS NOT NULL)');
 
 
             $result = $builder -> get();
 
-            //dd($result->getResultArray());
-
 
             return $result -> getResultArray();
         }
     }
-    
-
-
-
-
 ?>

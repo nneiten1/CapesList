@@ -49,15 +49,6 @@ class Authors extends ResourceController {
         return;
     }
 
-    public function deleteUser() {
-
-    }
-
-    public function updateUser() {
-
-    }
-
-
     public function getAll() {
         $model = new Author();
 

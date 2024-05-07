@@ -51,6 +51,26 @@ const ComicInput = styled.input`
   }
 `;
 
+const ReviewDetails = styled.textarea`
+  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 18px;  
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  justify-content: center;
+  position: relative;
+  right:0;
+
+  /* Add any additional styles you want here */
+
+  &:focus {
+    border-color: #007bff; /* Change border color when input is focused */
+  }
+`;
+
 const ComicHidden = styled.input`
   display: none;
 
@@ -131,7 +151,6 @@ function CreateReviewForm({reviewData}) {
     axios.get(`http://localhost:80/Users/allNames`)
       .then(({ data }) => {
             updateUsers(data); 
-            console.log(data);
       })
   },[])
 
@@ -144,22 +163,24 @@ function CreateReviewForm({reviewData}) {
         <ComicHeader>ADD REVIEW</ComicHeader>
         </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Name" type="text" required></ComicInput>
+              <ComicInput placeholder="Star Rating" type="text" name="review['STAR_RATING']" required></ComicInput>
+            </ComicDiv>
+            
+            <ComicDiv>
+              <ComicInput placeholder="Review Date" type="text" name="review['DATE']"required></ComicInput>
             </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Price" type="text" required></ComicInput>
-            </ComicDiv>
-            <ComicDiv>
-              <ComicInput placeholder="Release Date" type="text" required></ComicInput>
-            </ComicDiv>
-            <ComicDiv>
-                <ComicSelect defaultValue="User" required>
-                  <option value="" disabled selected>User</option>
+                <ComicSelect defaultValue="Reviewing" required>
+                  <option value="" disabled selected>Reviewing</option>
 
                   {users.map((user) => (
                     <UserName key={user.id} user={user} />
                   ))};
                 </ComicSelect>
+            </ComicDiv>
+
+            <ComicDiv>
+              <ReviewDetails placeholder="Review Details" type="text" name="review['DETAILS']" required></ReviewDetails>
             </ComicDiv>
             
             <ComicDiv>

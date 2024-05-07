@@ -131,11 +131,9 @@ function CreateListingForm({listingData}) {
     useEffect(() => {
       axios.get(`http://localhost:80/Comics/all` )
         .then(({ data }) => {
-              updatePost(data); 
-              console.log(data);
+              updatePost(data);
         })
     },[])
-    console.log("This is the post after update post: ", post);
   
 
     return (

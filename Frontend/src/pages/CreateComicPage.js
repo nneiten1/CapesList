@@ -24,7 +24,6 @@ const handleSubmit = (e) => {
         front_cover_url: comicFormData.front_cover_photo_url
     };
 
-    console.log(data);
 
     axios.post("http://localhost:80/Create/Comic", data).then((response) => {
 
@@ -47,7 +46,6 @@ const CreateComicPage = () => {
         front_cover_url: ""
     });
 
-    console.log(comicFormData);
 
     //Check for login cookie, if not, then redirect to the homepage
     //Grab cookies from browser

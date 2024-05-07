@@ -16,7 +16,6 @@ class ComicSeeder extends Seeder {
             'RELEASE_DATE' => '01/1963',
             'TITLE' => 'The Amazing Spider-Man',
             'ISSUE_NUMBER' => 1,
-            'OWNER_ID' => 1,
             'FRONT_COVER_PHOTO_URL' => NULL],
             ['COMIC_ID' => 2,
             'PUBLISHER_ID' => 2,    //2 = Marvel Comics
@@ -26,7 +25,6 @@ class ComicSeeder extends Seeder {
             'RELEASE_DATE' => '01/1963',
             'TITLE' => 'TEST',
             'ISSUE_NUMBER' => 1,
-            'OWNER_ID' => 3,
             'FRONT_COVER_PHOTO_URL' => NULL],
             ['COMIC_ID' => 3,
             'PUBLISHER_ID' => 2,    //2 = Marvel Comics
@@ -36,7 +34,6 @@ class ComicSeeder extends Seeder {
             'RELEASE_DATE' => '01/1963',
             'TITLE' => 'TEMPTEST',
             'ISSUE_NUMBER' => 1,
-            'OWNER_ID' => 1,
             'FRONT_COVER_PHOTO_URL' => NULL],
         ];
 

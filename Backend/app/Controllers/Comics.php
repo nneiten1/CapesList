@@ -30,19 +30,30 @@ class Comics extends ResourceController {
             $this->fail("No comic details submitted");
         }
 
-        return dd($_POST);
+        //Cleanses the data
+        $cleansedData = [
+            "TITLE" => esc($_POST['comic']['TITLE']),
+            "PRICE" => esc($_POST['comic']['PRICE']),
+            "DATE_ADDED" => esc($_POST['comic']['DATE_ADDED']),
+            "RELEASE_DATE" => esc($_POST['comic']['RELEASE_DATE']),
+            "ISSUE_NUMBER" => esc($_POST['comic']['ISSUE_NUMBER']),
+            "FRONT_COVER_PHOTO_URL" => esc($_POST['comic']['FRONT_COVER_PHOTO_URL']),
+            "AUTHOR_ID" => esc($_POST['comic']['AUTHOR']),
+            "PUBLISHER_ID" => esc($_POST['comic']['PUBLISHER']),
+        ];
 
-        // //Cleanses the data
-        // $cleansedData = [
+        //Makes a model
+        $model = new Comic();
 
-        // ];
+        //Creates the comic with cleansed data
+        $model -> createComic($cleansedData);
 
-        // //Makes a model
-        // $model = new Comic();
 
-        // //Creates the comic with cleansed data
-        // $model -> createComic($cleansedData);
+        //Redirect
+        header('Location: http://localhost:3000/create/comic', true, 301);
+        exit;
         
+        return;
     }
 
     public function deleteComic() {
@@ -71,17 +82,6 @@ class Comics extends ResourceController {
         
         return;
     }
-
-    public function updateComic() {
-        $cleansedData = cleansePostData($_POST, '');
-
-    }
-
-    public function retrieveComic() {
-        $cleansedData = cleansePostData($_POST, '');
-
-    }
-
 
     /**
      * Grabs all the comics in the DB

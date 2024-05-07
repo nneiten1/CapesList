@@ -32,15 +32,15 @@ const CreateReviewPage = () => {
        
     });
 
-    // //Check for login cookie, if not, then redirect to the homepage
-    // //Grab cookies from browser
-    // cookies = new Cookies();
+    //Check for login cookie, if not, then redirect to the homepage
+    //Grab cookies from browser
+    cookies = new Cookies();
 
-    // //Now get the ID cookie for USER ID
-    // let capesListCookie = cookies.get('CapesListID');
+    //Now get the ID cookie for USER ID
+    let capesListCookie = cookies.get('CapesListID');
 
     //Now check if you are logged in, if not, redirect to homepage
-    // if (typeof capesListCookie !== 'undefined') {
+    if (typeof capesListCookie !== 'undefined') {
         return (
             <>
                 <NavBar></NavBar>
@@ -52,11 +52,11 @@ const CreateReviewPage = () => {
             </>
             
         );
-    // } else {
-    //     return (<Navigate to="/"/>);
+    } else {
+        return (<Navigate to="/"/>);
     
         
-    // }
+    }
 
     
 }

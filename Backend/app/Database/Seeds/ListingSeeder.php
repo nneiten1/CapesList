@@ -16,6 +16,14 @@ class ListingSeeder extends Seeder {
                 'LISTING_DATE' => '04/11/2024',
                 'BUYER_USER_ID' => 2    /*2 = John Doe*/
             ],
+            ['LISTING_ID' => 2,
+                'SELLER_USER_ID' => 2,    //1 = Jane Doe
+                'PRICE' => '$6.00',       
+                'POSTING_TYPE' => 'Sold',
+                'STATUS' => 'Available',
+                'LISTING_DATE' => '04/11/2024',
+                'BUYER_USER_ID' => 1    /*2 = John Doe*/
+            ]
         ];
 
         //Populates the db with each Comic with all needed for entry
