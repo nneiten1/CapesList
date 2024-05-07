@@ -169,6 +169,15 @@ class User extends ResourceController {
 
     }
 
+
+    public function getAllNames() {
+        $model = new Users;
+
+        $results = $model -> getAllNames();
+
+        return $results;
+    }
+
 }
 
 

@@ -103,7 +103,7 @@ function CreateAuthorForm({authorData}) {
         <form action="http://localhost:80/Create/Author" method="POST">
         <LoginStack>
         <LoginDiv>
-        <LoginHeader>ADD PUBLISHER</LoginHeader>
+        <LoginHeader>ADD AUTHOR</LoginHeader>
         </LoginDiv>
             <LoginDiv>
             <LoginInput placeholder="First/Company Name" type="text" value={authorData.AUTHOR_FIRST_NAME}  name='author[AUTHOR_FIRST_NAME]'required></LoginInput>

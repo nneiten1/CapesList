@@ -118,12 +118,12 @@ const SubmitComic = styled.button`
 
 
 function CreateReviewForm({reviewData}) {
-//   //Check for login cookie, if not, then redirect to the homepage
-//     //Grab cookies from browser
-//     let cookies = new Cookies();
+  //Check for login cookie, if not, then redirect to the homepage
+  //Grab cookies from browser
+    let cookies = new Cookies();
 
-//     //Now get the ID cookie for USER ID
-//     let capesListCookie = cookies.get('CapesListID');
+  //Now get the ID cookie for USER ID
+  let capesListCookie = cookies.get('CapesListID');
 
   //Grabs all of the USERS FIRST NAMES
   const [users, updateUsers] =  useState(["Hello"]);
@@ -158,12 +158,12 @@ function CreateReviewForm({reviewData}) {
 
                   {users.map((user) => (
                     <UserName key={user.id} user={user} />
-                  ))}
+                  ))};
                 </ComicSelect>
             </ComicDiv>
             
             <ComicDiv>
-              <ComicHidden placeholder="User" type="text" value={0} defaultValue={0}></ComicHidden>
+              <ComicHidden placeholder="User" type="text" value={capesListCookie} defaultValue={0}></ComicHidden>
             </ComicDiv>
 
 

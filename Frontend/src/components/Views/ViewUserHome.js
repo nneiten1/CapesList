@@ -90,7 +90,7 @@ function ViewUserHome() {
 
     //When user clicks add Listing
     const addReviewClick = () => {
-        console.log("Adding review");
+        navigate("/create/review");
     }
 
     //When user clicks add Listing

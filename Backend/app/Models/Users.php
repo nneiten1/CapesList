@@ -98,6 +98,24 @@
             // $builder -> delete();
 
         }
+
+
+        public function getAllNames() {
+            $builder = $this -> db -> table($this -> table);
+
+            //Now grab both the first and last name of the users as one string
+            //CONCAT(FIRST_NAME, " ",  LAST_NAME) AS NAME
+            $builder -> select('CONCAT(FIRST_NAME, " ",  LAST_NAME) AS NAME');
+            $builder -> where ('(FIRST_NAME IS NOT NULL) AND (LAST_NAME IS NOT NULL)');
+
+
+            $result = $builder -> get();
+
+            //dd($result->getResultArray());
+
+
+            return $result -> getResultArray();
+        }
     }
     
 

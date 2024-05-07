@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Review from "../components/Reviewitem";
@@ -9,10 +9,13 @@ function Reviews() {
   const { userID } = useParams();
 
   const [post, updatePost] =  useState(["Hello"]);
-  axios.get(`http://localhost:80/Reviews/${userID}` )
-  .then ((response) => {
-    updatePost(post);
-  });
+  useEffect(() =>{
+    axios.get(`http://localhost:80/Reviews/${userID}`)
+    .then ((response) => {
+      updatePost(response.data);
+    });
+  },[]);
+
 
   return (
     

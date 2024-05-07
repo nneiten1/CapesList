@@ -26,7 +26,7 @@ $routes->get('/Comics', 'Comics::getAllComicTitles');
 $routes->get('/Authors/all', 'Authors::getAll');
 $routes->get('/Publishers/all', 'Publishers::getAll');
 $routes->get('/Listings/UserID/(:num)', 'Listings::getListingComicByUserID/$1');
-// $routes->get('/')
+$routes->get('/Users/allNames', 'User::getAllNames');
 
 
 //POST
