@@ -21,6 +21,7 @@ function Reviews() {
     
     <>
     <NavBar></NavBar>
+    <h1 style={{color: 'White', textAlign: 'center'}}>{post[0]['SELLER']}'s Seller Reviews</h1>
     {post.map((review) => (
                 <Review key={review.id}  review={review} />
              ))}

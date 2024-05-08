@@ -5,7 +5,7 @@ function BuyerNameDisplay(buyerName) {
 
   if (buyerName != null) {
     return (
-      <p>{buyerName}</p>
+      <p>Buyer: {buyerName}</p>
     );
   } else {
     return (
@@ -34,11 +34,11 @@ function Listing ({ listing }) {
         return (
           <div>
             <h2 style={{color: 'White'}}>{listing.TITLE}</h2>
-            <a onClick={handelSellerClick}>{listing.SELLER}</a>
-            <p>{listing.RELEASE_DATE}</p>
-            <p>{listing.PRICE}</p>
-            <p>{listing.ISSUE_NUMBER}</p>
-            <p>{listing.STATUS}</p>
+            <a onClick={handelSellerClick}>Seller: {listing.SELLER}</a>
+            <p>Released on: {listing.RELEASE_DATE}</p>
+            <p>Price: {listing.PRICE}</p>
+            <p>Issue {listing.ISSUE_NUMBER}</p>
+            <p>Status: {listing.STATUS}</p>
             {buyerText}
             <img style={{color: 'White'}} alt={altText} src={listing.img}></img>
           </div>

@@ -27,28 +27,12 @@ const CreateNewComic = styled.a`
 
 
 const SellPage = () => {
-//   const [post, updatePost] =  useState(["Hello"]);
-//let cookies = new Cookies();
 
-//Now get the ID cookie for USER ID
-//let capesListCookie = cookies.get('CapesListID');
-//   useEffect(() => {
-//       axios.get("http://localhost:80/listing/${capesListCookie}"))
-//         .then(({ data }) => {
-//               updatePost(data); 
-//               console.log(data);
-//         })
-//     },[])
   
   return (
           <>
-            <NavBar></NavBar>     
-            <BuyPageDiv>
-              {
-                post.map((listing) => (
-                <Listing key={listing.id}  listing={listing} />
-             ))}
-            </BuyPageDiv>
+            <NavBar></NavBar>
+            <h1 style={{color: 'White', textAlign: 'center'}}>Ensure you are logged in, you need an account to create a listing!</h1>
             <CreateNewComic href="/create/listing">Create New Listing</CreateNewComic>
           </>
           

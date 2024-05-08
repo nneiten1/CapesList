@@ -30,16 +30,19 @@
             
             //Conditional to check if there is a buyer for the listing
             //Make the buyer user id call
-            $builder = $this -> db -> table('User');
-            $builder -> select('FIRST_NAME AS BUYER');
-            $builder -> where('USER_ID', $results[0]['BUYER']);
-            $buyerName = $builder->get()->getResultArray()[0]['BUYER']; //Grabs the buyers name
+            for ($i = 0; $i < sizeof($results); $i++) {
+                $builder = $this -> db -> table('User');
+                $builder -> select('FIRST_NAME AS BUYER');
+                $builder -> where('USER_ID', $results[$i]['BUYER']);
+                $buyerName = $builder->get()->getResultArray()[0]['BUYER']; //Grabs the buyers name
 
 
-            //Replace the data
-            $results[0]['BUYER'] = $buyerName;
+                //Replace the data
+                $results[$i]['BUYER'] = $buyerName;
 
-            //This should have spliced the data together so the buyers user id is now their first name
+                //This should have spliced the data together so the buyers user id is now their first name
+            }
+            
             
 
 
@@ -75,9 +78,26 @@
                 Publisher.PUBLISHER_ID = Comic.PUBLISHER_ID AND Listing.COMIC_ID = Comic.COMIC_ID');
             $builder->where('LISTING_ID', $id);
 
-            $results = $builder -> get();
+            $results = $builder -> get()->getResultArray();
 
-            return $results->getResultArray();
+
+            //Conditional to check if there is a buyer for the listing
+            //Make the buyer user id call
+            for ($i = 0; $i < sizeof($results); $i++) {
+                $builder = $this -> db -> table('User');
+                $builder -> select('FIRST_NAME AS BUYER');
+                $builder -> where('USER_ID', $results[$i]['BUYER']);
+                $buyerName = $builder->get()->getResultArray()[0]['BUYER']; //Grabs the buyers name
+
+
+                //Replace the data
+                $results[$i]['BUYER'] = $buyerName;
+
+                //This should have spliced the data together so the buyers user id is now their first name
+            }
+            
+
+            return $results;
         }
 
        
