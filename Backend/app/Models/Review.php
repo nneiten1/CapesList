@@ -50,30 +50,10 @@
             return $result;
         }
 
-        public function createReview() {
-            //Prevents from random API access, done only through form
-            if (!isset($_POST['review'])) {
-                $this->fail("No review details submitted");
-            }
-    
-            //Pull from the POST array in account index
-            $cleansedPostData = [
-                "STAR_RATING" => esc($_POST['review']['stars']),
-                "DETAILS" => esc($_POST['review']['details']),
-                "DATE" => esc($_POST['review']['date']),
-                "REVIEWER_USER_ID" => esc($_POST['review']['reviewer_user_id']),
-                "REVIEWIE_USER_ID" => esc($_POST['account']['state']),
-                "STATE" => esc($_POST['account']['zip']),
-                "PHONE_NUMBER" => esc($_POST['account']['phone']),
-                "EMAIL" => esc($_POST['account']['email']),
-                "LOGIN_EMAIL" => esc($_POST['account']['email']),
-                "LOGIN_PASS" => esc($_POST['account']['password']),
-            ];
-    
-            //Now make the model and insert the user
-            $model = new Users();
-    
-            $model->createUser($cleansedPostData);
+        public function createReview($data) {
+            
+            $builder = $this -> db -> table($this -> table);
+            $builder->insert($data);
     
         }
     }

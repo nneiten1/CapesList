@@ -19,7 +19,25 @@ class Reviews extends ResourceController {
             $this->fail('No review form data found');
         }
 
-        dd($_POST);
+
+        $cleansedPostData = [
+            "STAR_RATING" => esc($_POST['review']['STAR_RATING']),
+            "DETAILS" => esc($_POST['review']['DETAILS']),
+            "DATE" => esc($_POST['review']['DATE']),
+            "REVIEWER_USER_ID" => esc($_POST['review']['REVIEWER_USER_ID']),
+            "REVIEWIE_USER_ID" => esc($_POST['review']['REVIEWIE_USER_ID']),
+        ];
+
+        $model = new Review();
+        $model -> createReview($cleansedPostData);
+
+
+        //Now reroute
+        header('Location: http://localhost:3000/create/review');
+        exit;
+
+
+        return;
     }
 
 

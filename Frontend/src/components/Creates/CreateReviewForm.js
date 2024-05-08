@@ -163,14 +163,14 @@ function CreateReviewForm({reviewData}) {
         <ComicHeader>ADD REVIEW</ComicHeader>
         </ComicDiv>
             <ComicDiv>
-              <ComicInput placeholder="Star Rating" type="text" name="review['STAR_RATING']" required></ComicInput>
+              <ComicInput placeholder="Star Rating" type="text" name="review[STAR_RATING]" required></ComicInput>
             </ComicDiv>
             
             <ComicDiv>
-              <ComicInput placeholder="Review Date" type="text" name="review['DATE']"required></ComicInput>
+              <ComicInput placeholder="Review Date" type="text" name="review[DATE]"required></ComicInput>
             </ComicDiv>
             <ComicDiv>
-                <ComicSelect defaultValue="Reviewing" required>
+                <ComicSelect defaultValue="Reviewing" name="review[REVIEWER_USER_ID]"required>
                   <option value="" disabled selected>Reviewing</option>
 
                   {users.map((user) => (
@@ -180,11 +180,11 @@ function CreateReviewForm({reviewData}) {
             </ComicDiv>
 
             <ComicDiv>
-              <ReviewDetails placeholder="Review Details" type="text" name="review['DETAILS']" required></ReviewDetails>
+              <ReviewDetails placeholder="Review Details" type="text" name="review[DETAILS]" required></ReviewDetails>
             </ComicDiv>
             
             <ComicDiv>
-              <ComicHidden placeholder="User" type="text" value={capesListCookie} defaultValue={0}></ComicHidden>
+              <ComicHidden placeholder="User" type="text" value={capesListCookie} defaultValue={0} name="review[REVIEWIE_USER_ID]"></ComicHidden>
             </ComicDiv>
 
 

@@ -5,6 +5,8 @@ import { BuyPageDiv } from "../components/BuyPageStyled";
 import NavBar from "../components/NavBar";
 import { Outlet, Navigate } from "react-router-dom";
 
+
+
 const BuyPage = () => {
   const [post, updatePost] =  useState(["Hello"]);
   useEffect(() => {
@@ -21,10 +23,11 @@ const BuyPage = () => {
             <BuyPageDiv>
               {
                 post.map((listing) => (
+                  <>
                     <a href={`listing/${listing.LISTING_ID}`}>
-                   <Listing key={listing.id}  listing={listing} />
-                   </a>
-                
+                    <Listing key={listing.id}  listing={listing} />
+                    </a>
+                  </>
              ))}
              
             </BuyPageDiv>

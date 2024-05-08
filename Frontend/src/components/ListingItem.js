@@ -1,4 +1,5 @@
 import { Outlet, Navigate, useNavigate } from "react-router-dom";
+import noPic from '../assets/images/comic.jpg';
 
 function BuyerNameDisplay(buyerName) {
   console.log(buyerName);
@@ -14,6 +15,21 @@ function BuyerNameDisplay(buyerName) {
   }
 }
 
+function ImageDisplay({listing}) {
+  var altText = "Image of the comic";
+
+  console.log(listing.FRONT_COVER);
+
+  if (listing.FRONT_COVER == null) {
+    return (<img style={{color: 'White', height: '300px'}} alt={altText} src={noPic}></img>);
+  } else {
+    return (<img style={{color: 'White', height: '300px'}} alt={altText} src={listing.FRONT_COVER}></img>);
+  }
+
+  
+
+}
+
 function Listing ({ listing }) {
         const navigate = useNavigate();
 
@@ -26,7 +42,7 @@ function Listing ({ listing }) {
             navigate(`/user/reviews/${listing.SELLER_USER_ID}`)
         };
 
-        var altText = "Image of the comic";
+        
 
         //Calls the function to determine if the buyers name is displayed
         let buyerText = BuyerNameDisplay(listing.BUYER);
@@ -40,7 +56,7 @@ function Listing ({ listing }) {
             <p>Issue {listing.ISSUE_NUMBER}</p>
             <p>Status: {listing.STATUS}</p>
             {buyerText}
-            <img style={{color: 'White'}} alt={altText} src={listing.img}></img>
+            <ImageDisplay listing={listing}/>
           </div>
         );
 };

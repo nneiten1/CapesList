@@ -14,7 +14,10 @@ const handleSubmit = (e) => {
     e.preventDefault(); //Keeps from page reload
 
     const data = {
-        
+       DETAILS: reviewFormData.DETAILS,
+       DATE: reviewFormData.DATE,
+       REVIEWER_USER_ID: reviewFormData.REVIEWER_USER_ID,
+       REVIEWIE_USER_ID: reviewFormData.REVIEWIE_USER_ID
     };
 
     axios.post("http://localhost:80/Create/Review", data).then((response) => {
@@ -29,7 +32,10 @@ const handleSubmit = (e) => {
 
 const CreateReviewPage = () => {
     reviewFormData = useState({
-       
+       DETAILS: "",
+       DATE: "",
+       REVIEWER_USER_ID: "",
+       REVIEWIE_USER_ID: ""
     });
 
     //Check for login cookie, if not, then redirect to the homepage
