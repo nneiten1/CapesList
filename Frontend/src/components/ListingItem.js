@@ -52,7 +52,7 @@ function Listing ({ listing }) {
             <h2 style={{color: 'White'}}>{listing.TITLE}</h2>
             <a onClick={handelSellerClick}>Seller: {listing.SELLER}</a>
             <p>Released on: {listing.RELEASE_DATE}</p>
-            <p>Price: {listing.PRICE}</p>
+            <p>Price: {listing.LISTINGPRICE}</p>
             <p>Issue {listing.ISSUE_NUMBER}</p>
             <p>Status: {listing.STATUS}</p>
             {buyerText}

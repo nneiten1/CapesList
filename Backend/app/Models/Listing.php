@@ -19,7 +19,7 @@
         public function getAllListings() {
             $builder = $this -> db -> table($this -> table);
 
-            $builder->select('LISTING_ID, FIRST_NAME AS SELLER, SELLER_USER_ID, Listing.PRICE, POSTING_TYPE, `STATUS`, LISTING_DATE,
+            $builder->select('LISTING_ID, FIRST_NAME AS SELLER, SELLER_USER_ID, Listing.PRICE AS LISTINGPRICE, POSTING_TYPE, `STATUS`, LISTING_DATE,
                  BUYER_USER_ID AS BUYER, Comic.COMIC_ID, PUBLISHER_FIRST_NAME AS PUBLISHER, AUTHOR_FIRST_NAME AS AUTHOR, Comic.PRICE, DATE_ADDED, RELEASE_DATE,
                  TITLE, ISSUE_NUMBER, FRONT_COVER_PHOTO_URL AS FRONT_COVER');
             $builder->from('`User`, Comic, Publisher, Author');
@@ -70,7 +70,7 @@
             
             $builder = $this -> db -> table($this->table);
 
-            $builder->select('LISTING_ID, FIRST_NAME AS SELLER, SELLER_USER_ID, Listing.PRICE, POSTING_TYPE, `STATUS`, LISTING_DATE,
+            $builder->select('LISTING_ID, FIRST_NAME AS SELLER, SELLER_USER_ID, Listing.PRICE AS LISTINGPRICE, POSTING_TYPE, `STATUS`, LISTING_DATE,
                  BUYER_USER_ID AS BUYER, Comic.COMIC_ID, PUBLISHER_FIRST_NAME AS PUBLISHER, AUTHOR_FIRST_NAME AS AUTHOR, Comic.PRICE, DATE_ADDED, RELEASE_DATE,
                  TITLE, ISSUE_NUMBER, FRONT_COVER_PHOTO_URL AS FRONT_COVER');
             $builder->from('`User`, Comic, Publisher, Author');
