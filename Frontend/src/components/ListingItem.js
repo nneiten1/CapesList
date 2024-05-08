@@ -48,6 +48,18 @@ function Listing ({ listing }) {
         let buyerText = BuyerNameDisplay(listing.BUYER);
 
         return (
+
+          <div style={{ color: 'white', margin: '20px' }}>
+          <h2>{listing.TITLE}</h2>
+          <a href="#" onClick={handleSellerClick}>{listing.SELLER}</a>
+          <p>{listing.RELEASE_DATE}</p>
+          <p>{listing.PRICE}</p>
+          <p>{listing.ISSUE_NUMBER}</p>
+          <img style={{ maxWidth: '100%', height: 'auto' }} alt={altText} src={listing.img} />
+      </div>
+
+
+          /*
           <div>
             <h2 style={{color: 'White'}}>{listing.TITLE}</h2>
             <a onClick={handelSellerClick}>Seller: {listing.SELLER}</a>
@@ -58,6 +70,7 @@ function Listing ({ listing }) {
             {buyerText}
             <ImageDisplay listing={listing}/>
           </div>
+          */
         );
 };
 
