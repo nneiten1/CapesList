@@ -18,26 +18,17 @@ const BuyPage = () => {
     },[])
   
   return (
-          <>
-            <NavBar></NavBar>     
-            <BuyPageDiv>
-              {
-                post.map((listing) => (
-                  <>
-                    <a href={`listing/${listing.LISTING_ID}`}>
-                    <Listing key={listing.id}  listing={listing} />
-                    </a>
-                  </>
-             ))}
-             
-            </BuyPageDiv>
-          
-          </>
-          
-        );
-    
+    <>
+    <NavBar />
+    <BuyPageDiv style={{ color: "white", margin: "20px" }}>
+      {post.map((listing) => (
+        <a href={`listing/${listing.LISTING_ID}`} key={listing.id}>
+          <Listing listing={listing} />
+        </a>
+      ))}
+    </BuyPageDiv>
+  </>
+);
 };
-
-
 
 export default BuyPage;
